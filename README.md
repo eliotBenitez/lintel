@@ -8,7 +8,7 @@
 
 [![GNOME Shell 50 | 51](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf?logo=gnome&logoColor=white)](metadata.json)
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
-![Version 0.16.0](https://img.shields.io/badge/version-0.16.0-8a63d2)
+![Version 0.16.1](https://img.shields.io/badge/version-0.16.1-8a63d2)
 
 **English** · [Русский](README.ru.md)
 
