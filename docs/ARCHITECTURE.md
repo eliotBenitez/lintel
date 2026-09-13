@@ -374,7 +374,11 @@ reimplemented: volume via `Gvc`, brightness via
 `brightnessctl` (verified present on the dev machine), Wi-Fi via NetworkManager
 `WirelessEnabled`, Bluetooth/Airplane via
 `org.gnome.SettingsDaemon.Rfkill`, Now Playing through MPRIS, and Dark Mode /
-Focus through their gsettings keys. Every
+Focus (Do Not Disturb, `show-banners`) through their gsettings keys. AirDrop has
+no GNOME backend at all, so its capsule launches the first installed
+nearby-sharing app (`AIRDROP_APP_IDS`: LocalSend, GSConnect, KDE Connect, then
+Bluetooth Transfer) and shows that app's name as its status line; with none
+installed it falls back to the Sharing panel. Every
 service lives in `src/services/*`, emits `changed`, and releases its
 proxies/signals on destroy. Actor construction and popup opening are verified in
 a headless GNOME 50.4 session; `control-center-mode = native` remains the safe

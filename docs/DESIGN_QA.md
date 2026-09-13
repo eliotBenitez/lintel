@@ -160,8 +160,10 @@ Dead code removed with them: `_launch()`, `_setAction()`, and the
 `.lintel-cc-radio`, `.lintel-cc-radio-row` and `.lintel-cc-bottom` rules.
 
 Known cosmetic deviation, deliberate: the reference AirDrop capsule shows a
-status line ("Everyone"). Ours leaves it empty, because GNOME exposes no AirDrop
-state and inventing one would put a false claim about the system in the UI.
+status line ("Everyone"). Ours never shows a discovery state, because GNOME
+exposes none and inventing one would put a false claim about the system in the
+UI. (Since 2026-09-14 it names the sharing app the capsule opens instead, e.g.
+"LocalSend".)
 
 Still uncertified: everything that only exists once drawn — material opacity
 over a real wallpaper, blur radius, glyph silhouettes, typography, and whether

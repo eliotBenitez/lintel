@@ -212,8 +212,10 @@ class CCMediaCard extends St.BoxLayout {
 
     setTrack(title, artist, artUrl, playing) {
         this._title.text = title || _('Not Playing');
+        // Read the argument, not the label back: an emptied St.Label reports
+        // `text` as null, which threw here and aborted the rest of _sync().
         this._artist.text = artist || '';
-        this._artist.visible = this._artist.text.length > 0;
+        this._artist.visible = Boolean(artist);
         this._playIcon.icon_name = playing
             ? 'media-playback-pause-symbolic'
             : 'media-playback-start-symbolic';

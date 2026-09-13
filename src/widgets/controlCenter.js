@@ -28,6 +28,7 @@ import Clutter from 'gi://Clutter';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
+import Shell from 'gi://Shell';
 import St from 'gi://St';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -46,6 +47,17 @@ import {
     CCSlider,
     CCTile,
 } from './ccTile.js';
+
+// GNOME has no AirDrop of its own, and its Sharing panel is about host name,
+// media and remote desktop, not sending files. The capsule therefore opens the
+// first nearby-sharing app that is installed, in this order of preference.
+const AIRDROP_APP_IDS = [
+    'localsend.desktop',
+    'org.localsend.localsend_app.desktop',
+    'org.gnome.Shell.Extensions.GSConnect.desktop',
+    'org.kde.kdeconnect.app.desktop',
+    'bluetooth-sendto.desktop',
+];
 
 export const ControlCenter = GObject.registerClass(
 class ControlCenter extends PanelMenu.Button {
@@ -88,6 +100,9 @@ class ControlCenter extends PanelMenu.Button {
             this._serviceIds.push([svc, svc.connect('changed', () => this._sync())]);
         for (const s of [this._iface, this._notif])
             this._gsettingsIds.push([s, s.connect('changed', () => this._sync())]);
+        const appSystem = Shell.AppSystem.get_default();
+        this._serviceIds.push([appSystem,
+            appSystem.connect('installed-changed', () => this._sync())]);
 
         this._openId = this.menu.connect('open-state-changed', (_m, open) => {
             if (open) {
@@ -122,9 +137,9 @@ class ControlCenter extends PanelMenu.Button {
             () => this._net.setBluetooth(this._btTile.checked));
         this._airDropTile = this._tile(
             'network-transmit-receive-symbolic', 'AirDrop',
-            () => this._openSettings('sharing'), 'lintel-cc-navigation');
-        // AirDrop is a navigation capsule, not a toggle: GNOME has no AirDrop
-        // state to reflect, so it must not latch when clicked.
+            () => this._openAirDrop(), 'lintel-cc-navigation');
+        // AirDrop is a launcher capsule, not a toggle: the sharing app owns
+        // its own visibility state, so the capsule must not latch when clicked.
         this._airDropTile.toggle_mode = false;
         this._focusTile = this._tile('weather-clear-night-symbolic', _('Focus'),
             () => this._notif.set_boolean(
@@ -257,6 +272,28 @@ class ControlCenter extends PanelMenu.Button {
         return button;
     }
 
+    _airDropApp() {
+        const appSystem = Shell.AppSystem.get_default();
+        for (const id of AIRDROP_APP_IDS) {
+            if (id === 'bluetooth-sendto.desktop' && !this._net.bluetoothAvailable)
+                continue;
+            const app = appSystem.lookup_app(id);
+            if (app)
+                return app;
+        }
+        return null;
+    }
+
+    _openAirDrop() {
+        const app = this._airDropApp();
+        if (!app) {
+            this._openSettings('sharing');
+            return;
+        }
+        this.menu.close();
+        app.activate();
+    }
+
     _openSettings(panel = '') {
         if (!GLib.find_program_in_path('gnome-control-center'))
             return;
@@ -283,6 +320,10 @@ class ControlCenter extends PanelMenu.Button {
             this._setTile(this._btTile, this._net.bluetoothAvailable,
                 this._net.bluetoothEnabled,
                 this._net.bluetoothEnabled ? _('On') : _('Off'));
+            // Name the app the capsule will open; GNOME exposes no discovery
+            // state to put there instead.
+            this._airDropTile.setActive(false,
+                this._airDropApp()?.get_name() ?? '');
 
             const dark = this._iface.get_string('color-scheme') === 'prefer-dark';
             this._darkButton.setActive(dark);

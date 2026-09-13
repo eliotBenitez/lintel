@@ -58,6 +58,8 @@ restores the stock top bar right away, with no need to log out.**
   reorder and resize them.
 - **Control Center.** A popup in the Tahoe layout with:
   - Wi-Fi, Bluetooth, Focus (Do Not Disturb) and Dark Mode toggles
+  - an AirDrop tile that opens your nearby file-sharing app (see
+    [Requirements](#requirements))
   - Now Playing (MPRIS)
   - Display and Sound sliders
   - utility buttons
@@ -91,6 +93,15 @@ restores the stock top bar right away, with no need to log out.**
   - *Screen Time:* GNOME Settings → Wellbeing with screen-time recording on.
   - *App Center item:* any app registered for `appstream://` links, such as
     GNOME Software.
+  - *AirDrop tile:* GNOME has no AirDrop, so the tile launches the first
+    installed nearby-sharing app, in this order:
+    [LocalSend](https://localsend.org) (native package or Flatpak),
+    [GSConnect](https://github.com/GSConnect/gnome-shell-extension-gsconnect),
+    [KDE Connect](https://kdeconnect.kde.org), then GNOME's Bluetooth file
+    transfer (`bluetooth-sendto`, only when a Bluetooth adapter is present). The
+    tile's second line names the app it will open. If none is installed, it
+    opens Settings → Sharing. LocalSend is the closest match: it works with
+    phones and computers on the same network, iPhone and Android included.
 
 ## Installation
 

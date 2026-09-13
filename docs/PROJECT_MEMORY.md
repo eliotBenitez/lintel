@@ -14,6 +14,16 @@
   composites the complete rectangular surfaces underneath it. Collapsed stack
   layers must be opaque; expanded messages remain translucent.
 
+## Control Center
+
+- An `St.Label` whose `text` was set to `''` reads back `text` as `null` in
+  GJS. Never branch on `label.text.length`; test the value you assigned.
+- Headless click tests (`gnome-shell-test-tool` + a Clutter virtual pointer
+  device): the first button press of the session is swallowed and closes the
+  open popup. Spend one throwaway click before asserting anything, or a working
+  control looks dead. `gnome-shell-test-tool` uses temporary XDG dirs, so
+  settings the test writes do not leak into the live session.
+
 ## Battery
 
 - UPower DisplayDevice `IconName` only uses coarse buckets
