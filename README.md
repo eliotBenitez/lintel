@@ -25,6 +25,20 @@ everything back when you turn it off. Notifications, accessibility, work-area
 geometry and other extensions' status icons all keep working. **Disabling Lintel
 restores the stock top bar right away, with no need to log out.**
 
+## Screenshots
+
+![Lintel top bar](docs/screenshots/01-top-bar.png)
+
+| Control Center | Notification Center |
+|:---:|:---:|
+| <img src="docs/screenshots/02-control-center-detail.png" alt="Lintel Control Center" width="360"> | <img src="docs/screenshots/03-notification-center-detail.png" alt="Lintel Notification Center" width="360"> |
+
+<p align="center">
+  <img src="docs/screenshots/04-preferences-window.png" alt="Lintel preferences" width="720">
+  <br>
+  <sub>Live preferences for layout, clock, weather and appearance</sub>
+</p>
+
 ## Features
 
 - **System menu.** A logo at the far left (you can change it) opens a compact
@@ -167,6 +181,7 @@ journalctl --user -f -o cat /usr/bin/gnome-shell     # watch for GJS errors
 tools/check-undefined-calls.py                 # static check for calls to deleted/undeclared helpers
 tools/update-translations.sh                   # regenerate the .pot and merge .po files
 tools/package.sh                               # build dist/lintel@topbar.shell-extension.zip
+tools/capture-screenshots.sh                   # rebuild the reproducible GNOME Shell gallery
 ```
 
 GNOME Shell caches extension modules, so after editing `.js` files you'll

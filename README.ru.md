@@ -26,6 +26,20 @@ Lintel превращает верхнюю панель GNOME в строку м
 **После отключения Lintel стандартная панель возвращается сразу, выходить из
 сеанса не нужно.**
 
+## Скриншоты
+
+![Верхняя панель Lintel](docs/screenshots/01-top-bar.png)
+
+| Центр управления | Центр уведомлений |
+|:---:|:---:|
+| <img src="docs/screenshots/02-control-center-detail.png" alt="Центр управления Lintel" width="360"> | <img src="docs/screenshots/03-notification-center-detail.png" alt="Центр уведомлений Lintel" width="360"> |
+
+<p align="center">
+  <img src="docs/screenshots/04-preferences-window.png" alt="Настройки Lintel" width="720">
+  <br>
+  <sub>Настройки компоновки, часов, погоды и внешнего вида применяются сразу</sub>
+</p>
+
 ## Возможности
 
 - **Системное меню.** Логотип слева (его можно сменить) открывает компактное
@@ -175,6 +189,7 @@ journalctl --user -f -o cat /usr/bin/gnome-shell     # следить за ош�
 tools/check-undefined-calls.py                 # статическая проверка вызовов удалённых/необъявленных функций
 tools/update-translations.sh                   # пересобрать .pot и обновить .po
 tools/package.sh                               # собрать dist/lintel@topbar.shell-extension.zip
+tools/capture-screenshots.sh                   # переснять воспроизводимую галерею GNOME Shell
 ```
 
 GNOME Shell кэширует модули расширений, поэтому после правки `.js` обычно нужно
