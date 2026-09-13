@@ -1,0 +1,872 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Lintel package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Lintel 0.16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-13 00:55+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: prefs.js:71
+msgid "Pick an emoji"
+msgstr ""
+
+#: prefs.js:82
+msgid "Use the distro / GNOME logo"
+msgstr ""
+
+#: prefs.js:98
+msgid "Quick symbols"
+msgstr ""
+
+#: prefs.js:190
+msgid "Layout"
+msgstr ""
+
+#: prefs.js:197
+msgid "Panel"
+msgstr ""
+
+#: prefs.js:199
+msgid "Hide Activities"
+msgstr ""
+
+#: prefs.js:199
+msgid "Hide the workspace / Activities indicator"
+msgstr ""
+
+#: prefs.js:201
+msgid "Clock on the right"
+msgstr ""
+
+#: prefs.js:201
+msgid "Move the clock to the far right, macOS-style"
+msgstr ""
+
+#: prefs.js:203
+msgid "Reveal in full screen"
+msgstr ""
+
+#: prefs.js:204
+msgid "Move the pointer to the top edge to show the panel temporarily"
+msgstr ""
+
+#: prefs.js:208 src/widgets/notificationCenter.js:196
+msgid "Notification Center"
+msgstr ""
+
+#: prefs.js:209
+msgid ""
+"Widgets are added, removed, reordered and resized from Edit Widgets inside "
+"Notification Center."
+msgstr ""
+
+#: prefs.js:212
+msgid "Tahoe Notification Center"
+msgstr ""
+
+#: prefs.js:213
+msgid "Open notifications and widgets when the clock or Super+V is pressed"
+msgstr ""
+
+#: prefs.js:216
+msgid "System menu"
+msgstr ""
+
+#: prefs.js:218
+msgid "Show system menu"
+msgstr ""
+
+#: prefs.js:218
+msgid "The left-hand Apple-style logo menu"
+msgstr ""
+
+#: prefs.js:220
+msgid "Logo icon"
+msgstr ""
+
+#: prefs.js:220
+msgid "Emoji or symbol; empty = your distribution’s logo"
+msgstr ""
+
+#: prefs.js:222
+msgid "Custom icon name / path"
+msgstr ""
+
+#: prefs.js:223
+msgid "Advanced: an icon-theme name (e.g. start-here-symbolic) or file path"
+msgstr ""
+
+#: prefs.js:226
+msgid "Active application"
+msgstr ""
+
+#: prefs.js:228
+msgid "Show app name"
+msgstr ""
+
+#: prefs.js:228
+msgid "Bold name of the focused application"
+msgstr ""
+
+#: prefs.js:230
+msgid "Label when idle"
+msgstr ""
+
+#: prefs.js:230
+msgid "Shown when nothing is focused; empty = hide"
+msgstr ""
+
+#: prefs.js:233 src/widgets/controlCenter.js:53
+msgid "Control Center"
+msgstr ""
+
+#: prefs.js:234
+msgid "Mode"
+msgstr ""
+
+#: prefs.js:235
+msgid "Custom popup (replaces Quick Settings)"
+msgstr ""
+
+#: prefs.js:236
+msgid "Open native Quick Settings"
+msgstr ""
+
+#: prefs.js:237
+msgid ""
+"Custom adds three independent menu-bar items and hides native Quick Settings"
+msgstr ""
+
+#: prefs.js:245 src/widgets/notificationCenter.js:52
+msgid "Clock"
+msgstr ""
+
+#: prefs.js:250
+msgid "Clock format"
+msgstr ""
+
+#: prefs.js:251
+msgid "12-hour / 24-hour follows the system setting."
+msgstr ""
+
+#: prefs.js:254
+msgid "Show date"
+msgstr ""
+
+#: prefs.js:255
+msgid "When space allows"
+msgstr ""
+
+#: prefs.js:256
+msgid "Always"
+msgstr ""
+
+#: prefs.js:257
+msgid "Never"
+msgstr ""
+
+#: prefs.js:258
+msgid "When space allows: the date is dropped once the bar runs out of room"
+msgstr ""
+
+#: prefs.js:259
+msgid "Show the day of the week"
+msgstr ""
+
+#: prefs.js:260
+msgid "Show AM/PM"
+msgstr ""
+
+#: prefs.js:261
+msgid "Only applies while the system uses a 12-hour clock"
+msgstr ""
+
+#: prefs.js:262
+msgid "Show seconds"
+msgstr ""
+
+#: prefs.js:270 src/widgets/ncWidgets.js:380 src/widgets/ncWidgets.js:423
+#: src/widgets/notificationCenter.js:47
+msgid "Weather"
+msgstr ""
+
+#: prefs.js:275
+msgid "Weather widget"
+msgstr ""
+
+#: prefs.js:276
+msgid ""
+"Both services are free and need no account. The location’s coordinates are "
+"sent to the one selected."
+msgstr ""
+
+#: prefs.js:278
+msgid "Service"
+msgstr ""
+
+#: prefs.js:281
+msgid "Open-Meteo forecasts every hour, wttr.in every three hours"
+msgstr ""
+
+#: prefs.js:282
+msgid "Temperature"
+msgstr ""
+
+#: prefs.js:283
+msgid "Follow region"
+msgstr ""
+
+#: prefs.js:284
+msgid "Celsius"
+msgstr ""
+
+#: prefs.js:285
+msgid "Fahrenheit"
+msgstr ""
+
+#: prefs.js:289 prefs.js:290
+msgid "Location"
+msgstr ""
+
+#: prefs.js:291
+msgid "Current location"
+msgstr ""
+
+#: prefs.js:292
+msgid "Chosen city"
+msgstr ""
+
+#: prefs.js:301
+msgid "Location Services"
+msgstr ""
+
+#: prefs.js:303
+msgid "Open Settings"
+msgstr ""
+
+#: prefs.js:318
+msgid "City"
+msgstr ""
+
+#: prefs.js:321
+msgid "Search for a city"
+msgstr ""
+
+#: prefs.js:329
+msgid "On — the city below is used only if locating fails"
+msgstr ""
+
+#: prefs.js:330
+msgid "Off — the city below is used instead"
+msgstr ""
+
+#: prefs.js:332
+msgid "None chosen"
+msgstr ""
+
+#: prefs.js:365
+msgid "No cities found"
+msgstr ""
+
+#: prefs.js:390
+msgid "Search failed"
+msgstr ""
+
+#: prefs.js:429
+msgid "Appearance"
+msgstr ""
+
+#: prefs.js:433
+msgid "Style"
+msgstr ""
+
+#: prefs.js:434
+msgid "Background"
+msgstr ""
+
+#: prefs.js:435
+msgid "Transparent (Tahoe)"
+msgstr ""
+
+#: prefs.js:436
+msgid "Translucent"
+msgstr ""
+
+#: prefs.js:437
+msgid "Solid"
+msgstr ""
+
+#: prefs.js:438
+msgid "Follow GNOME theme"
+msgstr ""
+
+#: prefs.js:440
+msgid "Text colour"
+msgstr ""
+
+#: prefs.js:441
+msgid "Automatic (background-aware)"
+msgstr ""
+
+#: prefs.js:442
+msgid "Light"
+msgstr ""
+
+#: prefs.js:443
+msgid "Dark"
+msgstr ""
+
+#: prefs.js:445
+msgid "In the Overview"
+msgstr ""
+
+#: prefs.js:446
+msgid "Transparent"
+msgstr ""
+
+#: prefs.js:447
+msgid "Keep Lintel bar"
+msgstr ""
+
+#: prefs.js:448
+msgid "Native GNOME"
+msgstr ""
+
+#: prefs.js:451
+msgid "Background on open"
+msgstr ""
+
+#: prefs.js:451
+msgid "Rounded wash while a button is open"
+msgstr ""
+
+#: prefs.js:454
+msgid "Metrics"
+msgstr ""
+
+#: prefs.js:456
+msgid "Panel height"
+msgstr ""
+
+#: prefs.js:456
+msgid "0 = theme default"
+msgstr ""
+
+#: prefs.js:459
+msgid "Button padding"
+msgstr ""
+
+#: prefs.js:459
+msgid "Default 10; -1 = inherit"
+msgstr ""
+
+#: prefs.js:462
+msgid "Item spacing"
+msgstr ""
+
+#: prefs.js:462
+msgid "Default 0; -1 = inherit"
+msgstr ""
+
+#: prefs.js:465
+msgid "Corner radius"
+msgstr ""
+
+#: prefs.js:465
+msgid "High = pill"
+msgstr ""
+
+#: prefs.js:468
+msgid "Transition (ms)"
+msgstr ""
+
+#: prefs.js:471
+msgid "Font"
+msgstr ""
+
+#: prefs.js:473
+msgid "Family"
+msgstr ""
+
+#: prefs.js:473
+msgid "Prepended to the SF Pro / Adwaita fallback"
+msgstr ""
+
+#: prefs.js:475
+msgid "Weight"
+msgstr ""
+
+#: prefs.js:475
+msgid "e.g. normal, bold, 600; empty = inherit"
+msgstr ""
+
+#: prefs.js:477
+msgid "Size (pt)"
+msgstr ""
+
+#: prefs.js:477
+msgid "0 = inherit; 10.5pt = macOS’s 14px"
+msgstr ""
+
+#: prefs.js:481
+msgid "Hover / press"
+msgstr ""
+
+#: prefs.js:483
+msgid "Hover opacity"
+msgstr ""
+
+#: prefs.js:485
+msgid "Active opacity"
+msgstr ""
+
+#. TRANSLATORS: Extension name shown by extension managers.
+#: po/metadata.js.in:5
+msgid "Lintel"
+msgstr ""
+
+#. TRANSLATORS: Extension description shown by extension managers.
+#: po/metadata.js.in:8
+msgid ""
+"Reworks the GNOME top bar into a macOS-Tahoe-style menu bar with a free-"
+"floating Notification Center while keeping the native GNOME Panel, "
+"notification model, accessibility and third-party status items intact. Non-"
+"destructive: disabling restores the stock top bar without a logout."
+msgstr ""
+
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
+#: src/widgets/controlCenter.js:285 src/widgets/controlCenter.js:292
+msgid "On"
+msgstr ""
+
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
+#: src/widgets/controlCenter.js:285
+msgid "Off"
+msgstr ""
+
+#: src/services/battery.js:69
+msgid "Charging"
+msgstr ""
+
+#: src/services/battery.js:71 src/services/battery.js:79
+msgid "On Battery"
+msgstr ""
+
+#: src/services/battery.js:73
+msgid "Empty"
+msgstr ""
+
+#: src/services/battery.js:75
+msgid "Fully Charged"
+msgstr ""
+
+#: src/services/battery.js:77
+msgid "Not Charging"
+msgstr ""
+
+#: src/services/battery.js:81 src/services/battery.js:92
+#: src/widgets/batteryMenu.js:23 src/widgets/ncWidgets.js:564
+#: src/widgets/notificationCenter.js:50
+msgid "Battery"
+msgstr ""
+
+#: src/services/battery.js:90
+msgid "Power Adapter"
+msgstr ""
+
+#: src/services/battery.js:108
+#, javascript-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/services/battery.js:111
+#, javascript-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/services/battery.js:116
+#, javascript-format
+msgid "%s until full"
+msgstr ""
+
+#: src/services/battery.js:117
+#, javascript-format
+msgid "%s remaining"
+msgstr ""
+
+#: src/services/media.js:113 src/widgets/ccTile.js:164
+#: src/widgets/ccTile.js:214
+msgid "Not Playing"
+msgstr ""
+
+#: src/services/powerProfiles.js:87
+msgid "Power Saver"
+msgstr ""
+
+#: src/services/powerProfiles.js:89
+msgid "Balanced"
+msgstr ""
+
+#: src/services/powerProfiles.js:91
+msgid "High Performance"
+msgstr ""
+
+#: src/services/powerProfiles.js:93
+msgid "Custom"
+msgstr ""
+
+#: src/services/weatherProviders.js:71
+msgid "Clear"
+msgstr ""
+
+#: src/services/weatherProviders.js:72
+msgid "Mostly Clear"
+msgstr ""
+
+#: src/services/weatherProviders.js:73
+msgid "Partly Cloudy"
+msgstr ""
+
+#: src/services/weatherProviders.js:74
+msgid "Cloudy"
+msgstr ""
+
+#: src/services/weatherProviders.js:75
+msgid "Fog"
+msgstr ""
+
+#: src/services/weatherProviders.js:76
+msgid "Drizzle"
+msgstr ""
+
+#: src/services/weatherProviders.js:77
+msgid "Showers"
+msgstr ""
+
+#: src/services/weatherProviders.js:78
+msgid "Rain"
+msgstr ""
+
+#: src/services/weatherProviders.js:79
+msgid "Heavy Rain"
+msgstr ""
+
+#: src/services/weatherProviders.js:80
+msgid "Freezing Rain"
+msgstr ""
+
+#: src/services/weatherProviders.js:81
+msgid "Sleet"
+msgstr ""
+
+#: src/services/weatherProviders.js:82
+msgid "Snow"
+msgstr ""
+
+#: src/services/weatherProviders.js:83
+msgid "Heavy Snow"
+msgstr ""
+
+#: src/services/weatherProviders.js:84
+msgid "Thunderstorm"
+msgstr ""
+
+#: src/widgets/activeApp.js:24
+msgid "Active Application"
+msgstr ""
+
+#: src/widgets/activeApp.js:62 src/widgets/activeApp.js:65
+#: src/widgets/activeApp.js:67
+msgid "Desktop"
+msgstr ""
+
+#: src/widgets/batteryMenu.js:94
+msgid "Power Mode"
+msgstr ""
+
+#: src/widgets/batteryMenu.js:105
+msgid "Battery Settings…"
+msgstr ""
+
+#: src/widgets/batteryMenu.js:121
+#, javascript-format
+msgid "Battery, %s, %s"
+msgstr ""
+
+#: src/widgets/batteryMenu.js:128
+#, javascript-format
+msgid "Power Source: %s"
+msgstr ""
+
+#: src/widgets/ccTile.js:139 src/widgets/notificationCenter.js:51
+msgid "Now Playing"
+msgstr ""
+
+#: src/widgets/ccTile.js:187
+msgid "Previous"
+msgstr ""
+
+#: src/widgets/ccTile.js:188
+msgid "Play"
+msgstr ""
+
+#: src/widgets/ccTile.js:189
+msgid "Next"
+msgstr ""
+
+#: src/widgets/ccTile.js:273
+#, javascript-format
+msgid "Toggle %s"
+msgstr ""
+
+#: src/widgets/ccTile.js:283
+#, javascript-format
+msgid "%s level"
+msgstr ""
+
+#: src/widgets/controlCenter.js:120 src/widgets/wifiMenu.js:23
+#: src/widgets/wifiMenu.js:53
+msgid "Wi-Fi"
+msgstr ""
+
+#: src/widgets/controlCenter.js:121
+msgid "Bluetooth"
+msgstr ""
+
+#: src/widgets/controlCenter.js:129
+msgid "Focus"
+msgstr ""
+
+#: src/widgets/controlCenter.js:160
+msgid "Stage Manager"
+msgstr ""
+
+#: src/widgets/controlCenter.js:167
+msgid "Screen Mirroring"
+msgstr ""
+
+#: src/widgets/controlCenter.js:184
+msgid "Dark Mode"
+msgstr ""
+
+#: src/widgets/controlCenter.js:189
+msgid "Screenshot"
+msgstr ""
+
+#: src/widgets/controlCenter.js:204
+msgid "Display"
+msgstr ""
+
+#: src/widgets/controlCenter.js:210
+msgid "Sound"
+msgstr ""
+
+#: src/widgets/controlCenter.js:227 src/widgets/controlCenter.js:228
+msgid "Edit Controls"
+msgstr ""
+
+#: src/widgets/ncWidgets.js:49
+msgid "Updating…"
+msgstr ""
+
+#: src/widgets/ncWidgets.js:50
+msgid "Finding your location…"
+msgstr ""
+
+#: src/widgets/ncWidgets.js:51
+msgid "Choose a city in Lintel settings"
+msgstr ""
+
+#: src/widgets/ncWidgets.js:53
+msgid "Location Services are off. Choose a city in settings"
+msgstr ""
+
+#: src/widgets/ncWidgets.js:55
+msgid "Location unavailable. Choose a city in settings"
+msgstr ""
+
+#: src/widgets/ncWidgets.js:56
+msgid "Weather is unavailable right now"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:45
+msgid "Calendar"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:46
+msgid "Up Next"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:48
+msgid "Screen Time"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:49
+msgid "System"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:57
+msgctxt "widget size"
+msgid "S"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:58
+msgctxt "widget size"
+msgid "M"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:59
+msgctxt "widget size"
+msgid "L"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:205
+msgid "Clear all notifications"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:250 src/widgets/notificationCenter.js:252
+#: src/widgets/notificationCenter.js:720
+msgid "Edit Widgets"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:585
+#, javascript-format
+msgid "Remove %s"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:591
+#, javascript-format
+msgid "Move %s up"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:594
+#, javascript-format
+msgid "Move %s down"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:599
+#, javascript-format
+msgid "Change %s widget size"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:667
+msgid "Add Widgets"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:690
+#, javascript-format
+msgid "Add %s"
+msgstr ""
+
+#: src/widgets/notificationCenter.js:720
+msgid "Done"
+msgstr ""
+
+#: src/widgets/systemMenu.js:204
+msgid "Lintel System Menu"
+msgstr ""
+
+#: src/widgets/systemMenu.js:301
+msgid "About This System"
+msgstr ""
+
+#: src/widgets/systemMenu.js:310
+msgid "System Settings…"
+msgstr ""
+
+#: src/widgets/systemMenu.js:313
+msgid "App Center…"
+msgstr ""
+
+#: src/widgets/systemMenu.js:322
+msgid "Recent Items"
+msgstr ""
+
+#: src/widgets/systemMenu.js:327
+msgid "Open Recent Items…"
+msgstr ""
+
+#: src/widgets/systemMenu.js:335
+msgid "Force Quit…"
+msgstr ""
+
+#: src/widgets/systemMenu.js:342
+msgid "Sleep"
+msgstr ""
+
+#: src/widgets/systemMenu.js:345
+msgid "Restart…"
+msgstr ""
+
+#: src/widgets/systemMenu.js:348
+msgid "Shut Down…"
+msgstr ""
+
+#: src/widgets/systemMenu.js:354
+msgid "Lock Screen"
+msgstr ""
+
+#: src/widgets/systemMenu.js:357
+#, javascript-format
+msgid "Log Out %s…"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:61
+msgid "Networks"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:72
+msgid "Wi-Fi Settings…"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:86
+#, javascript-format
+msgid "Wi-Fi, connected to %s"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:87
+#, javascript-format
+msgid "Wi-Fi, %s"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:88
+msgid "not connected"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:89
+msgid "off"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:95
+msgid "Unavailable"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:110
+msgid "Searching for networks…"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:125
+#, javascript-format
+msgid "Disconnect from %s"
+msgstr ""
+
+#: src/widgets/wifiMenu.js:126
+#, javascript-format
+msgid "Connect to %s"
+msgstr ""

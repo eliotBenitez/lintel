@@ -1,0 +1,8 @@
+// This extraction-only file keeps translatable metadata.json strings in the
+// gettext catalogue. GNOME translates these fields automatically at runtime.
+
+// TRANSLATORS: Extension name shown by extension managers.
+_('Lintel');
+
+// TRANSLATORS: Extension description shown by extension managers.
+_('Reworks the GNOME top bar into a macOS-Tahoe-style menu bar with a free-floating Notification Center while keeping the native GNOME Panel, notification model, accessibility and third-party status items intact. Non-destructive: disabling restores the stock top bar without a logout.');

@@ -1,0 +1,16 @@
+{
+  "uuid": "lintel@topbar",
+  "name": "Lintel",
+  "description": "Reworks the GNOME top bar into a macOS-Tahoe-style menu bar with a free-floating Notification Center while keeping the native GNOME Panel, notification model, accessibility and third-party status items intact. Non-destructive: disabling restores the stock top bar without a logout.",
+  "shell-version": [
+    "50",
+    "51"
+  ],
+  "session-modes": [
+    "user"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.lintel",
+  "gettext-domain": "lintel@topbar",
+  "url": "https://github.com/eliotBenitez/lintel",
+  "version-name": "0.16.0"
+}

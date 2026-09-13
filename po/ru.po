@@ -1,0 +1,887 @@
+# Russian translations for Lintel.
+# Copyright (C) 2026 Lintel contributors
+# This file is distributed under the same license as the Lintel package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Lintel 0.16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-13 00:55+0300\n"
+"PO-Revision-Date: 2026-09-13 00:55+0300\n"
+"Last-Translator: Lintel contributors\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: prefs.js:71
+msgid "Pick an emoji"
+msgstr "Выбрать эмодзи"
+
+#: prefs.js:82
+msgid "Use the distro / GNOME logo"
+msgstr "Использовать логотип дистрибутива / GNOME"
+
+#: prefs.js:98
+msgid "Quick symbols"
+msgstr "Быстрый выбор символа"
+
+#: prefs.js:190
+msgid "Layout"
+msgstr "Компоновка"
+
+#: prefs.js:197
+msgid "Panel"
+msgstr "Панель"
+
+#: prefs.js:199
+msgid "Hide Activities"
+msgstr "Скрыть «Обзор»"
+
+#: prefs.js:199
+msgid "Hide the workspace / Activities indicator"
+msgstr "Скрыть индикатор рабочих столов / «Обзора»"
+
+#: prefs.js:201
+msgid "Clock on the right"
+msgstr "Часы справа"
+
+#: prefs.js:201
+msgid "Move the clock to the far right, macOS-style"
+msgstr "Переместить часы в крайнее правое положение, как в macOS"
+
+#: prefs.js:203
+msgid "Reveal in full screen"
+msgstr "Показывать в полноэкранном режиме"
+
+#: prefs.js:204
+msgid "Move the pointer to the top edge to show the panel temporarily"
+msgstr "Подведите указатель к верхнему краю, чтобы временно показать панель"
+
+#: prefs.js:208 src/widgets/notificationCenter.js:196
+msgid "Notification Center"
+msgstr "Центр уведомлений"
+
+#: prefs.js:209
+msgid ""
+"Widgets are added, removed, reordered and resized from Edit Widgets inside "
+"Notification Center."
+msgstr ""
+"Добавлять, удалять, перемещать и изменять размер виджетов можно в режиме "
+"«Изменить виджеты» Центра уведомлений."
+
+#: prefs.js:212
+msgid "Tahoe Notification Center"
+msgstr "Центр уведомлений Tahoe"
+
+#: prefs.js:213
+msgid "Open notifications and widgets when the clock or Super+V is pressed"
+msgstr "Открывать уведомления и виджеты при нажатии часов или Super+V"
+
+#: prefs.js:216
+msgid "System menu"
+msgstr "Системное меню"
+
+#: prefs.js:218
+msgid "Show system menu"
+msgstr "Показывать системное меню"
+
+#: prefs.js:218
+msgid "The left-hand Apple-style logo menu"
+msgstr "Левое меню с логотипом в стиле Apple"
+
+#: prefs.js:220
+msgid "Logo icon"
+msgstr "Значок логотипа"
+
+#: prefs.js:220
+msgid "Emoji or symbol; empty = your distribution’s logo"
+msgstr "Эмодзи или символ; пустое значение = логотип дистрибутива"
+
+#: prefs.js:222
+msgid "Custom icon name / path"
+msgstr "Имя или путь собственного значка"
+
+#: prefs.js:223
+msgid "Advanced: an icon-theme name (e.g. start-here-symbolic) or file path"
+msgstr ""
+"Дополнительно: имя значка из темы (например, start-here-symbolic) или путь к "
+"файлу"
+
+#: prefs.js:226
+msgid "Active application"
+msgstr "Активное приложение"
+
+#: prefs.js:228
+msgid "Show app name"
+msgstr "Показывать имя приложения"
+
+#: prefs.js:228
+msgid "Bold name of the focused application"
+msgstr "Полужирное имя приложения в фокусе"
+
+#: prefs.js:230
+msgid "Label when idle"
+msgstr "Надпись в режиме ожидания"
+
+#: prefs.js:230
+msgid "Shown when nothing is focused; empty = hide"
+msgstr "Показывается, когда ничего не в фокусе; пустое значение = скрыть"
+
+#: prefs.js:233 src/widgets/controlCenter.js:53
+msgid "Control Center"
+msgstr "Центр управления"
+
+#: prefs.js:234
+msgid "Mode"
+msgstr "Режим"
+
+#: prefs.js:235
+msgid "Custom popup (replaces Quick Settings)"
+msgstr "Собственное меню (заменяет быстрые настройки)"
+
+#: prefs.js:236
+msgid "Open native Quick Settings"
+msgstr "Открывать стандартные быстрые настройки"
+
+#: prefs.js:237
+msgid ""
+"Custom adds three independent menu-bar items and hides native Quick Settings"
+msgstr ""
+"Собственный режим добавляет три независимых элемента панели меню и скрывает "
+"стандартные быстрые настройки"
+
+#: prefs.js:245 src/widgets/notificationCenter.js:52
+msgid "Clock"
+msgstr "Часы"
+
+#: prefs.js:250
+msgid "Clock format"
+msgstr "Формат часов"
+
+#: prefs.js:251
+msgid "12-hour / 24-hour follows the system setting."
+msgstr "12- или 24-часовой формат определяется системной настройкой."
+
+#: prefs.js:254
+msgid "Show date"
+msgstr "Показывать дату"
+
+#: prefs.js:255
+msgid "When space allows"
+msgstr "Если хватает места"
+
+#: prefs.js:256
+msgid "Always"
+msgstr "Всегда"
+
+#: prefs.js:257
+msgid "Never"
+msgstr "Никогда"
+
+#: prefs.js:258
+msgid "When space allows: the date is dropped once the bar runs out of room"
+msgstr ""
+"Если хватает места: дата скрывается, когда на панели заканчивается место"
+
+#: prefs.js:259
+msgid "Show the day of the week"
+msgstr "Показывать день недели"
+
+#: prefs.js:260
+msgid "Show AM/PM"
+msgstr "Показывать AM/PM"
+
+#: prefs.js:261
+msgid "Only applies while the system uses a 12-hour clock"
+msgstr "Применяется только при системном 12-часовом формате"
+
+#: prefs.js:262
+msgid "Show seconds"
+msgstr "Показывать секунды"
+
+#: prefs.js:270 src/widgets/ncWidgets.js:380 src/widgets/ncWidgets.js:423
+#: src/widgets/notificationCenter.js:47
+msgid "Weather"
+msgstr "Погода"
+
+#: prefs.js:275
+msgid "Weather widget"
+msgstr "Виджет погоды"
+
+#: prefs.js:276
+msgid ""
+"Both services are free and need no account. The location’s coordinates are "
+"sent to the one selected."
+msgstr ""
+"Оба сервиса бесплатны и не требуют учётной записи. Координаты местоположения "
+"отправляются выбранному сервису."
+
+#: prefs.js:278
+msgid "Service"
+msgstr "Сервис"
+
+#: prefs.js:281
+msgid "Open-Meteo forecasts every hour, wttr.in every three hours"
+msgstr "Open-Meteo даёт прогноз на каждый час, wttr.in — на каждые три часа"
+
+#: prefs.js:282
+msgid "Temperature"
+msgstr "Температура"
+
+#: prefs.js:283
+msgid "Follow region"
+msgstr "По региональным настройкам"
+
+#: prefs.js:284
+msgid "Celsius"
+msgstr "Цельсий"
+
+#: prefs.js:285
+msgid "Fahrenheit"
+msgstr "Фаренгейт"
+
+#: prefs.js:289 prefs.js:290
+msgid "Location"
+msgstr "Местоположение"
+
+#: prefs.js:291
+msgid "Current location"
+msgstr "Текущее местоположение"
+
+#: prefs.js:292
+msgid "Chosen city"
+msgstr "Выбранный город"
+
+#: prefs.js:301
+msgid "Location Services"
+msgstr "Службы геолокации"
+
+#: prefs.js:303
+msgid "Open Settings"
+msgstr "Открыть настройки"
+
+#: prefs.js:318
+msgid "City"
+msgstr "Город"
+
+#: prefs.js:321
+msgid "Search for a city"
+msgstr "Найти город"
+
+#: prefs.js:329
+msgid "On — the city below is used only if locating fails"
+msgstr "Вкл. — указанный ниже город используется только при ошибке определения"
+
+#: prefs.js:330
+msgid "Off — the city below is used instead"
+msgstr "Выкл. — вместо этого используется указанный ниже город"
+
+#: prefs.js:332
+msgid "None chosen"
+msgstr "Не выбран"
+
+#: prefs.js:365
+msgid "No cities found"
+msgstr "Города не найдены"
+
+#: prefs.js:390
+msgid "Search failed"
+msgstr "Ошибка поиска"
+
+#: prefs.js:429
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#: prefs.js:433
+msgid "Style"
+msgstr "Стиль"
+
+#: prefs.js:434
+msgid "Background"
+msgstr "Фон"
+
+#: prefs.js:435
+msgid "Transparent (Tahoe)"
+msgstr "Прозрачный (Tahoe)"
+
+#: prefs.js:436
+msgid "Translucent"
+msgstr "Полупрозрачный"
+
+#: prefs.js:437
+msgid "Solid"
+msgstr "Непрозрачный"
+
+#: prefs.js:438
+msgid "Follow GNOME theme"
+msgstr "Как в теме GNOME"
+
+#: prefs.js:440
+msgid "Text colour"
+msgstr "Цвет текста"
+
+#: prefs.js:441
+msgid "Automatic (background-aware)"
+msgstr "Автоматический (с учётом фона)"
+
+#: prefs.js:442
+msgid "Light"
+msgstr "Светлый"
+
+#: prefs.js:443
+msgid "Dark"
+msgstr "Тёмный"
+
+#: prefs.js:445
+msgid "In the Overview"
+msgstr "В режиме «Обзор»"
+
+#: prefs.js:446
+msgid "Transparent"
+msgstr "Прозрачный"
+
+#: prefs.js:447
+msgid "Keep Lintel bar"
+msgstr "Оставить панель Lintel"
+
+#: prefs.js:448
+msgid "Native GNOME"
+msgstr "Обычная панель GNOME"
+
+#: prefs.js:451
+msgid "Background on open"
+msgstr "Фон при открытии"
+
+#: prefs.js:451
+msgid "Rounded wash while a button is open"
+msgstr "Скруглённая подсветка открытой кнопки"
+
+#: prefs.js:454
+msgid "Metrics"
+msgstr "Размеры"
+
+#: prefs.js:456
+msgid "Panel height"
+msgstr "Высота панели"
+
+#: prefs.js:456
+msgid "0 = theme default"
+msgstr "0 = значение темы"
+
+#: prefs.js:459
+msgid "Button padding"
+msgstr "Внутренний отступ кнопок"
+
+#: prefs.js:459
+msgid "Default 10; -1 = inherit"
+msgstr "По умолчанию 10; −1 = наследовать"
+
+#: prefs.js:462
+msgid "Item spacing"
+msgstr "Интервал между элементами"
+
+#: prefs.js:462
+msgid "Default 0; -1 = inherit"
+msgstr "По умолчанию 0; −1 = наследовать"
+
+#: prefs.js:465
+msgid "Corner radius"
+msgstr "Радиус скругления"
+
+#: prefs.js:465
+msgid "High = pill"
+msgstr "Большое значение = капсула"
+
+#: prefs.js:468
+msgid "Transition (ms)"
+msgstr "Переход (мс)"
+
+#: prefs.js:471
+msgid "Font"
+msgstr "Шрифт"
+
+#: prefs.js:473
+msgid "Family"
+msgstr "Семейство"
+
+#: prefs.js:473
+msgid "Prepended to the SF Pro / Adwaita fallback"
+msgstr "Добавляется перед резервными шрифтами SF Pro / Adwaita"
+
+#: prefs.js:475
+msgid "Weight"
+msgstr "Начертание"
+
+#: prefs.js:475
+msgid "e.g. normal, bold, 600; empty = inherit"
+msgstr "например: normal, bold, 600; пустое значение = наследовать"
+
+#: prefs.js:477
+msgid "Size (pt)"
+msgstr "Размер (пт)"
+
+#: prefs.js:477
+msgid "0 = inherit; 10.5pt = macOS’s 14px"
+msgstr "0 = наследовать; 10,5 пт = 14 пикс. в macOS"
+
+#: prefs.js:481
+msgid "Hover / press"
+msgstr "Наведение / нажатие"
+
+#: prefs.js:483
+msgid "Hover opacity"
+msgstr "Прозрачность при наведении"
+
+#: prefs.js:485
+msgid "Active opacity"
+msgstr "Прозрачность при нажатии"
+
+#. TRANSLATORS: Extension name shown by extension managers.
+#: po/metadata.js.in:5
+msgid "Lintel"
+msgstr "Lintel"
+
+#. TRANSLATORS: Extension description shown by extension managers.
+#: po/metadata.js.in:8
+msgid ""
+"Reworks the GNOME top bar into a macOS-Tahoe-style menu bar with a free-"
+"floating Notification Center while keeping the native GNOME Panel, "
+"notification model, accessibility and third-party status items intact. Non-"
+"destructive: disabling restores the stock top bar without a logout."
+msgstr ""
+"Преобразует верхнюю панель GNOME в панель меню в стиле macOS Tahoe с "
+"отдельным Центром уведомлений, сохраняя штатную панель GNOME, модель "
+"уведомлений, специальные возможности и сторонние индикаторы. Изменения "
+"обратимы: при отключении стандартная верхняя панель восстанавливается без "
+"выхода из системы."
+
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
+#: src/widgets/controlCenter.js:285 src/widgets/controlCenter.js:292
+msgid "On"
+msgstr "Вкл."
+
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
+#: src/widgets/controlCenter.js:285
+msgid "Off"
+msgstr "Выкл."
+
+#: src/services/battery.js:69
+msgid "Charging"
+msgstr "Заряжается"
+
+#: src/services/battery.js:71 src/services/battery.js:79
+msgid "On Battery"
+msgstr "От аккумулятора"
+
+#: src/services/battery.js:73
+msgid "Empty"
+msgstr "Разряжен"
+
+#: src/services/battery.js:75
+msgid "Fully Charged"
+msgstr "Полностью заряжен"
+
+#: src/services/battery.js:77
+msgid "Not Charging"
+msgstr "Не заряжается"
+
+#: src/services/battery.js:81 src/services/battery.js:92
+#: src/widgets/batteryMenu.js:23 src/widgets/ncWidgets.js:564
+#: src/widgets/notificationCenter.js:50
+msgid "Battery"
+msgstr "Аккумулятор"
+
+#: src/services/battery.js:90
+msgid "Power Adapter"
+msgstr "Адаптер питания"
+
+#: src/services/battery.js:108
+#, javascript-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d час"
+msgstr[1] "%d часа"
+msgstr[2] "%d часов"
+
+#: src/services/battery.js:111
+#, javascript-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d минута"
+msgstr[1] "%d минуты"
+msgstr[2] "%d минут"
+
+#: src/services/battery.js:116
+#, javascript-format
+msgid "%s until full"
+msgstr "%s до полной зарядки"
+
+#: src/services/battery.js:117
+#, javascript-format
+msgid "%s remaining"
+msgstr "Осталось: %s"
+
+#: src/services/media.js:113 src/widgets/ccTile.js:164
+#: src/widgets/ccTile.js:214
+msgid "Not Playing"
+msgstr "Ничего не воспроизводится"
+
+#: src/services/powerProfiles.js:87
+msgid "Power Saver"
+msgstr "Энергосбережение"
+
+#: src/services/powerProfiles.js:89
+msgid "Balanced"
+msgstr "Сбалансированный"
+
+#: src/services/powerProfiles.js:91
+msgid "High Performance"
+msgstr "Высокая производительность"
+
+#: src/services/powerProfiles.js:93
+msgid "Custom"
+msgstr "Другой"
+
+#: src/services/weatherProviders.js:71
+msgid "Clear"
+msgstr "Ясно"
+
+#: src/services/weatherProviders.js:72
+msgid "Mostly Clear"
+msgstr "Преимущественно ясно"
+
+#: src/services/weatherProviders.js:73
+msgid "Partly Cloudy"
+msgstr "Переменная облачность"
+
+#: src/services/weatherProviders.js:74
+msgid "Cloudy"
+msgstr "Облачно"
+
+#: src/services/weatherProviders.js:75
+msgid "Fog"
+msgstr "Туман"
+
+#: src/services/weatherProviders.js:76
+msgid "Drizzle"
+msgstr "Морось"
+
+#: src/services/weatherProviders.js:77
+msgid "Showers"
+msgstr "Ливни"
+
+#: src/services/weatherProviders.js:78
+msgid "Rain"
+msgstr "Дождь"
+
+#: src/services/weatherProviders.js:79
+msgid "Heavy Rain"
+msgstr "Сильный дождь"
+
+#: src/services/weatherProviders.js:80
+msgid "Freezing Rain"
+msgstr "Ледяной дождь"
+
+#: src/services/weatherProviders.js:81
+msgid "Sleet"
+msgstr "Мокрый снег"
+
+#: src/services/weatherProviders.js:82
+msgid "Snow"
+msgstr "Снег"
+
+#: src/services/weatherProviders.js:83
+msgid "Heavy Snow"
+msgstr "Сильный снег"
+
+#: src/services/weatherProviders.js:84
+msgid "Thunderstorm"
+msgstr "Гроза"
+
+#: src/widgets/activeApp.js:24
+msgid "Active Application"
+msgstr "Активное приложение"
+
+#: src/widgets/activeApp.js:62 src/widgets/activeApp.js:65
+#: src/widgets/activeApp.js:67
+msgid "Desktop"
+msgstr "Рабочий стол"
+
+#: src/widgets/batteryMenu.js:94
+msgid "Power Mode"
+msgstr "Режим энергопотребления"
+
+#: src/widgets/batteryMenu.js:105
+msgid "Battery Settings…"
+msgstr "Настройки питания…"
+
+#: src/widgets/batteryMenu.js:121
+#, javascript-format
+msgid "Battery, %s, %s"
+msgstr "Аккумулятор, %s, %s"
+
+#: src/widgets/batteryMenu.js:128
+#, javascript-format
+msgid "Power Source: %s"
+msgstr "Источник питания: %s"
+
+#: src/widgets/ccTile.js:139 src/widgets/notificationCenter.js:51
+msgid "Now Playing"
+msgstr "Сейчас играет"
+
+#: src/widgets/ccTile.js:187
+msgid "Previous"
+msgstr "Предыдущая композиция"
+
+#: src/widgets/ccTile.js:188
+msgid "Play"
+msgstr "Воспроизвести"
+
+#: src/widgets/ccTile.js:189
+msgid "Next"
+msgstr "Следующая композиция"
+
+#: src/widgets/ccTile.js:273
+#, javascript-format
+msgid "Toggle %s"
+msgstr "Переключить «%s»"
+
+#: src/widgets/ccTile.js:283
+#, javascript-format
+msgid "%s level"
+msgstr "Уровень: %s"
+
+#: src/widgets/controlCenter.js:120 src/widgets/wifiMenu.js:23
+#: src/widgets/wifiMenu.js:53
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: src/widgets/controlCenter.js:121
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/widgets/controlCenter.js:129
+msgid "Focus"
+msgstr "Фокусирование"
+
+#: src/widgets/controlCenter.js:160
+msgid "Stage Manager"
+msgstr "Постановщик"
+
+#: src/widgets/controlCenter.js:167
+msgid "Screen Mirroring"
+msgstr "Повтор экрана"
+
+#: src/widgets/controlCenter.js:184
+msgid "Dark Mode"
+msgstr "Тёмное оформление"
+
+#: src/widgets/controlCenter.js:189
+msgid "Screenshot"
+msgstr "Снимок экрана"
+
+#: src/widgets/controlCenter.js:204
+msgid "Display"
+msgstr "Экран"
+
+#: src/widgets/controlCenter.js:210
+msgid "Sound"
+msgstr "Звук"
+
+#: src/widgets/controlCenter.js:227 src/widgets/controlCenter.js:228
+msgid "Edit Controls"
+msgstr "Настроить элементы управления"
+
+#: src/widgets/ncWidgets.js:49
+msgid "Updating…"
+msgstr "Обновление…"
+
+#: src/widgets/ncWidgets.js:50
+msgid "Finding your location…"
+msgstr "Определение местоположения…"
+
+#: src/widgets/ncWidgets.js:51
+msgid "Choose a city in Lintel settings"
+msgstr "Выберите город в настройках Lintel"
+
+#: src/widgets/ncWidgets.js:53
+msgid "Location Services are off. Choose a city in settings"
+msgstr "Службы геолокации отключены. Выберите город в настройках"
+
+#: src/widgets/ncWidgets.js:55
+msgid "Location unavailable. Choose a city in settings"
+msgstr "Местоположение недоступно. Выберите город в настройках"
+
+#: src/widgets/ncWidgets.js:56
+msgid "Weather is unavailable right now"
+msgstr "Сейчас погода недоступна"
+
+#: src/widgets/notificationCenter.js:45
+msgid "Calendar"
+msgstr "Календарь"
+
+#: src/widgets/notificationCenter.js:46
+msgid "Up Next"
+msgstr "Ближайшие события"
+
+#: src/widgets/notificationCenter.js:48
+msgid "Screen Time"
+msgstr "Экранное время"
+
+#: src/widgets/notificationCenter.js:49
+msgid "System"
+msgstr "Система"
+
+#: src/widgets/notificationCenter.js:57
+msgctxt "widget size"
+msgid "S"
+msgstr "М"
+
+#: src/widgets/notificationCenter.js:58
+msgctxt "widget size"
+msgid "M"
+msgstr "С"
+
+#: src/widgets/notificationCenter.js:59
+msgctxt "widget size"
+msgid "L"
+msgstr "Б"
+
+#: src/widgets/notificationCenter.js:205
+msgid "Clear all notifications"
+msgstr "Очистить все уведомления"
+
+#: src/widgets/notificationCenter.js:250 src/widgets/notificationCenter.js:252
+#: src/widgets/notificationCenter.js:720
+msgid "Edit Widgets"
+msgstr "Изменить виджеты"
+
+#: src/widgets/notificationCenter.js:585
+#, javascript-format
+msgid "Remove %s"
+msgstr "Удалить «%s»"
+
+#: src/widgets/notificationCenter.js:591
+#, javascript-format
+msgid "Move %s up"
+msgstr "Переместить «%s» вверх"
+
+#: src/widgets/notificationCenter.js:594
+#, javascript-format
+msgid "Move %s down"
+msgstr "Переместить «%s» вниз"
+
+#: src/widgets/notificationCenter.js:599
+#, javascript-format
+msgid "Change %s widget size"
+msgstr "Изменить размер виджета «%s»"
+
+#: src/widgets/notificationCenter.js:667
+msgid "Add Widgets"
+msgstr "Добавить виджеты"
+
+#: src/widgets/notificationCenter.js:690
+#, javascript-format
+msgid "Add %s"
+msgstr "Добавить «%s»"
+
+#: src/widgets/notificationCenter.js:720
+msgid "Done"
+msgstr "Готово"
+
+#: src/widgets/systemMenu.js:204
+msgid "Lintel System Menu"
+msgstr "Системное меню Lintel"
+
+#: src/widgets/systemMenu.js:301
+msgid "About This System"
+msgstr "Об этом компьютере"
+
+#: src/widgets/systemMenu.js:310
+msgid "System Settings…"
+msgstr "Настройки системы…"
+
+#: src/widgets/systemMenu.js:313
+msgid "App Center…"
+msgstr "Центр приложений…"
+
+#: src/widgets/systemMenu.js:322
+msgid "Recent Items"
+msgstr "Недавние объекты"
+
+#: src/widgets/systemMenu.js:327
+msgid "Open Recent Items…"
+msgstr "Открыть недавние объекты…"
+
+#: src/widgets/systemMenu.js:335
+msgid "Force Quit…"
+msgstr "Завершить принудительно…"
+
+#: src/widgets/systemMenu.js:342
+msgid "Sleep"
+msgstr "Режим сна"
+
+#: src/widgets/systemMenu.js:345
+msgid "Restart…"
+msgstr "Перезапустить…"
+
+#: src/widgets/systemMenu.js:348
+msgid "Shut Down…"
+msgstr "Выключить…"
+
+#: src/widgets/systemMenu.js:354
+msgid "Lock Screen"
+msgstr "Заблокировать экран"
+
+#: src/widgets/systemMenu.js:357
+#, javascript-format
+msgid "Log Out %s…"
+msgstr "Завершить сеанс пользователя %s…"
+
+#: src/widgets/wifiMenu.js:61
+msgid "Networks"
+msgstr "Сети"
+
+#: src/widgets/wifiMenu.js:72
+msgid "Wi-Fi Settings…"
+msgstr "Настройки Wi-Fi…"
+
+#: src/widgets/wifiMenu.js:86
+#, javascript-format
+msgid "Wi-Fi, connected to %s"
+msgstr "Wi-Fi, подключено к %s"
+
+#: src/widgets/wifiMenu.js:87
+#, javascript-format
+msgid "Wi-Fi, %s"
+msgstr "Wi-Fi, %s"
+
+#: src/widgets/wifiMenu.js:88
+msgid "not connected"
+msgstr "нет подключения"
+
+#: src/widgets/wifiMenu.js:89
+msgid "off"
+msgstr "выключен"
+
+#: src/widgets/wifiMenu.js:95
+msgid "Unavailable"
+msgstr "Недоступно"
+
+#: src/widgets/wifiMenu.js:110
+msgid "Searching for networks…"
+msgstr "Поиск сетей…"
+
+#: src/widgets/wifiMenu.js:125
+#, javascript-format
+msgid "Disconnect from %s"
+msgstr "Отключиться от %s"
+
+#: src/widgets/wifiMenu.js:126
+#, javascript-format
+msgid "Connect to %s"
+msgstr "Подключиться к %s"

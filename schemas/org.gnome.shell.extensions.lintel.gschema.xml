@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <!--
+    Settings surface for Lintel. Keys are declared up front so the structure
+    is stable; the skeleton (Stage 1) does not yet read them at runtime, which
+    keeps the extension loadable even before the schema is compiled.
+  -->
+  <enum id="org.gnome.shell.extensions.lintel.appearance">
+    <value nick="tahoe-transparent" value="0"/>
+    <value nick="translucent" value="1"/>
+    <value nick="solid" value="2"/>
+    <value nick="follow-gnome" value="3"/>
+  </enum>
+
+  <enum id="org.gnome.shell.extensions.lintel.overview-mode">
+    <value nick="keep" value="0"/>
+    <value nick="transparent" value="1"/>
+    <value nick="native" value="2"/>
+  </enum>
+
+  <enum id="org.gnome.shell.extensions.lintel.text-mode">
+    <value nick="auto" value="0"/>
+    <value nick="light" value="1"/>
+    <value nick="dark" value="2"/>
+  </enum>
+
+  <!-- Mirrors macOS's "Show date" three-way control. when-space-allows drops the
+       date (keeping the weekday) once the panel's natural width would overflow
+       the monitor, which is what the macOS menu bar does when it gets crowded. -->
+  <enum id="org.gnome.shell.extensions.lintel.clock-date-mode">
+    <value nick="when-space-allows" value="0"/>
+    <value nick="always" value="1"/>
+    <value nick="never" value="2"/>
+  </enum>
+
+  <enum id="org.gnome.shell.extensions.lintel.control-center-mode">
+    <value nick="custom" value="0"/>
+    <value nick="native" value="1"/>
+  </enum>
+
+  <!-- Keyless weather services only; see src/services/weatherProviders.js. -->
+  <enum id="org.gnome.shell.extensions.lintel.weather-provider">
+    <value nick="open-meteo" value="0"/>
+    <value nick="wttr" value="1"/>
+  </enum>
+
+  <enum id="org.gnome.shell.extensions.lintel.weather-location-mode">
+    <value nick="auto" value="0"/>
+    <value nick="manual" value="1"/>
+  </enum>
+
+  <enum id="org.gnome.shell.extensions.lintel.weather-units">
+    <value nick="auto" value="0"/>
+    <value nick="celsius" value="1"/>
+    <value nick="fahrenheit" value="2"/>
+  </enum>
+
+  <schema id="org.gnome.shell.extensions.lintel"
+          path="/org/gnome/shell/extensions/lintel/">
+
+    <!-- Layout (Stage 2) -->
+    <key name="hide-activities" type="b">
+      <default>true</default>
+      <summary>Hide the Activities / workspace indicator</summary>
+    </key>
+    <key name="clock-on-right" type="b">
+      <default>true</default>
+      <summary>Move the clock (date menu) to the far right, macOS-style</summary>
+    </key>
+    <key name="fullscreen-reveal" type="b">
+      <default>true</default>
+      <summary>Reveal the panel at the top edge while an app is fullscreen</summary>
+    </key>
+
+    <!-- Notification Center -->
+    <key name="notification-center-enabled" type="b">
+      <default>true</default>
+      <summary>Open the Tahoe-style Notification Center from the clock</summary>
+    </key>
+    <key name="notification-center-widgets" type="as">
+      <default>['calendar', 'weather', 'battery']</default>
+      <summary>Ordered identifiers of widgets shown in Notification Center</summary>
+    </key>
+    <key name="notification-center-widget-sizes" type="a{ss}">
+      <default>{'calendar': 'large', 'upnext': 'medium', 'weather': 'medium', 'screentime': 'small', 'system': 'medium', 'battery': 'small', 'media': 'medium', 'clock': 'small'}</default>
+      <summary>Notification Center widget sizes: small, medium, or large</summary>
+    </key>
+    <key name="weather-provider" enum="org.gnome.shell.extensions.lintel.weather-provider">
+      <default>'open-meteo'</default>
+      <summary>Weather service used by the Notification Center widget</summary>
+    </key>
+    <key name="weather-location-mode" enum="org.gnome.shell.extensions.lintel.weather-location-mode">
+      <default>'auto'</default>
+      <summary>Where the weather location comes from</summary>
+      <description>auto uses Location Services and falls back to weather-location when they are off or fail; manual always uses weather-location.</description>
+    </key>
+    <key name="weather-location" type="(sdds)">
+      <default>('', 0.0, 0.0, '')</default>
+      <summary>Chosen weather city: name, latitude, longitude, IANA time zone</summary>
+    </key>
+    <key name="weather-units" enum="org.gnome.shell.extensions.lintel.weather-units">
+      <default>'auto'</default>
+      <summary>Temperature unit: follow the region, Celsius or Fahrenheit</summary>
+    </key>
+
+    <!-- System menu (Stage 3) -->
+    <key name="show-system-menu" type="b">
+      <default>true</default>
+      <summary>Show the left-hand system (Apple-style) menu</summary>
+    </key>
+    <key name="system-menu-icon" type="s">
+      <default>''</default>
+      <summary>System-menu logo: an emoji/symbol glyph, an icon-theme name, or a file path; empty = the distributor logo from os-release LOGO=</summary>
+    </key>
+
+    <!-- Active application (Stage 4) -->
+    <key name="show-active-app" type="b">
+      <default>true</default>
+      <summary>Show the focused application's name</summary>
+    </key>
+    <key name="empty-app-label" type="s">
+      <default>'Desktop'</default>
+      <summary>Text shown when no window is focused (empty = hide)</summary>
+    </key>
+
+    <!-- Control Center (Stage 6) -->
+    <key name="control-center-mode" enum="org.gnome.shell.extensions.lintel.control-center-mode">
+      <default>'custom'</default>
+      <summary>custom = separate Wi-Fi, battery and Control Center menus; native = open Quick Settings</summary>
+    </key>
+
+    <!-- Clock (Stage 7) -->
+    <key name="clock-show-weekday" type="b">
+      <default>true</default>
+      <summary>Show weekday in the clock</summary>
+    </key>
+    <key name="clock-date-mode" enum="org.gnome.shell.extensions.lintel.clock-date-mode">
+      <default>'when-space-allows'</default>
+      <summary>Show the date in the clock: when space allows, always, or never</summary>
+    </key>
+    <key name="clock-show-ampm" type="b">
+      <default>true</default>
+      <summary>Show AM/PM after the time (12-hour mode only)</summary>
+    </key>
+    <key name="clock-show-seconds" type="b">
+      <default>false</default>
+      <summary>Show seconds in the clock</summary>
+    </key>
+
+    <!-- Appearance (Stage 8) -->
+    <key name="appearance" enum="org.gnome.shell.extensions.lintel.appearance">
+      <default>'tahoe-transparent'</default>
+      <summary>Panel background style</summary>
+    </key>
+    <key name="overview-mode" enum="org.gnome.shell.extensions.lintel.overview-mode">
+      <default>'transparent'</default>
+      <summary>How the Lintel bar behaves in the Overview</summary>
+    </key>
+    <key name="text-mode" enum="org.gnome.shell.extensions.lintel.text-mode">
+      <default>'auto'</default>
+      <summary>Text/icon colour: auto (sample visible background), light, or dark</summary>
+    </key>
+    <key name="panel-height" type="i">
+      <default>24</default>
+      <range min="0" max="128"/>
+      <summary>Panel height in px (0 = inherit theme; macOS Tahoe is 24)</summary>
+    </key>
+    <key name="h-padding" type="i">
+      <default>10</default>
+      <range min="-1" max="64"/>
+      <summary>Horizontal padding of panel buttons in px (-1 = inherit; macOS Tahoe is 10)</summary>
+    </key>
+    <key name="item-spacing" type="i">
+      <default>0</default>
+      <range min="-1" max="64"/>
+      <summary>Horizontal spacing between panel items in px (-1 = inherit)</summary>
+    </key>
+    <!-- Replaces the old integer 'font-size': the measured macOS menu bar text is
+         14px = 10.5pt, which an integer key cannot express. Renamed rather than
+         retyped so a stored integer cannot collide with the new type. -->
+    <key name="font-size-pt" type="d">
+      <default>10.5</default>
+      <range min="0.0" max="48.0"/>
+      <summary>Font size in pt (0 = inherit; 10.5pt = the 14px macOS menu bar text)</summary>
+    </key>
+    <key name="font-family" type="s">
+      <default>''</default>
+      <summary>Font family override; empty = Cantarell</summary>
+    </key>
+    <key name="font-weight" type="s">
+      <default>'normal'</default>
+      <summary>Font weight override (e.g. normal, bold, 600); empty = inherit. macOS emphasises only the app title, so the bar itself is normal</summary>
+    </key>
+    <key name="hover-opacity" type="d">
+      <default>0.12</default>
+      <range min="0.0" max="1.0"/>
+      <summary>Opacity of the hover wash on panel buttons</summary>
+    </key>
+    <key name="active-opacity" type="d">
+      <default>0.20</default>
+      <range min="0.0" max="1.0"/>
+      <summary>Opacity of the active/open wash on panel buttons</summary>
+    </key>
+    <key name="show-menu-background" type="b">
+      <default>true</default>
+      <summary>Show the rounded background when a panel button is open</summary>
+    </key>
+    <key name="corner-radius" type="i">
+      <default>99</default>
+      <range min="0" max="9999"/>
+      <summary>Corner radius of the hover/active wash in px (high = pill)</summary>
+    </key>
+    <key name="transition-ms" type="i">
+      <default>120</default>
+      <range min="0" max="1000"/>
+      <summary>Hover/press transition duration in ms</summary>
+    </key>
+  </schema>
+</schemalist>
