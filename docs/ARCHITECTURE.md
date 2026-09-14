@@ -270,9 +270,57 @@ to Quick Settings, that glyph opens our **own** popup. Its composition follows
 Wi-Fi / Bluetooth / AirDrop as three stacked capsules beside a Now Playing card
 and two square utilities; then an actions row carrying two circles (Dark Mode,
 Screenshot) and the Focus capsule; then labelled Display and Sound modules; then
-Edit Controls (`CCTile`, `CCActionButton`, `CCMediaCard`, `CCSlider`), all
-styled under `.lintel-cc-*`. The 292px content width and its two 140px columns
-with a 12px gutter come from that capture at 1pt = 1 logical px.
+Edit Controls (`CCTile`, `CCMediaCard`, `CCSlider`), all styled under
+`.lintel-cc-*`. The 292px content width, its two 140px halves with a 12px
+gutter, and the 62px circles with a 16px gap inside a half come from that
+capture at 1pt = 1 logical px.
+
+**The grid.** Everything above the sliders is placed by `CCGrid`
+(`src/widgets/ccGrid.js`), a `Clutter.LayoutManager` over four cells per row.
+A control is a circle (1×1), a capsule (2×1, only starting at a half's edge) or
+Now Playing's square (2×2); every toggle and launcher is a `CCTile` that renders
+either as a capsule or, via `setCompact()`, as a circle. Controls are packed in
+reading order, densely and row-major, skipping hidden ones; the default order
+reproduces the reference exactly. A capsule or square whose other half stays
+empty across all its rows is widened to the full 292px. The gaps are
+`-lintel-grid-*` lengths in `stylesheet.css`; the cell width is derived from
+the content width. Actors are never re-parented once placed, so a rearrangement
+keeps hover and key focus.
+
+**Missing hardware reflows, it does not leave holes.** A desktop without a
+Bluetooth adapter moves the following controls up instead of leaving a gap.
+Hardware is detected, not assumed: Wi-Fi appears only when NetworkManager has a
+Wi-Fi *device* (libnm in `services/connectivity.js`), and a machine on a cable
+with no Wi-Fi card gets a wired-network control instead (connected / connecting
+/ cable unplugged, wording borrowed from Settings, opens Settings → Network).
+Bluetooth appears only with an adapter (Rfkill `BluetoothHasAirplaneMode`), and
+the Display and Sound sliders are hidden, not dimmed, without a backlight or an
+output. Unavailable controls are also left out of the editor's gallery.
+
+**Edit Controls** edits the popup in place, as Tahoe does, and never closes it.
+Each control lives in a slot (`BinLayout`) with two edit-only children: a
+shield button over the control, which takes the click so selecting Focus does
+not toggle Do Not Disturb, and a remove badge on the top-left corner. Selecting a
+control shows a toolbar to move it earlier/later among the controls of its own
+section (grid or sliders) that exist on this machine, and to switch a resizable
+control between 1×1 and 2×1. Removed controls are listed in an "Add Controls"
+gallery. The layout is two keys: `control-center-controls` (ordered ids; `display`
+and `sound` are the sliders) and `control-center-control-sizes`. Writing a key
+the compiled schema lacks aborts the Shell, so `_hasKey()` checks the schema
+first and keeps the layout in memory otherwise. Third-party toggles are not part
+of the saved layout: they follow the user's controls and cannot be operated
+while editing. Closing the popup leaves edit mode.
+
+Four controls exist beyond the reference and are offered only in the gallery,
+so the default popup stays the Tahoe composition: Airplane Mode (Rfkill
+`AirplaneMode`, shown only with `HasAirplaneMode`), Power Mode
+(power-profiles-daemon via `services/powerProfiles.js`; a click steps to the next
+profile, the status names the active one and the capsule is tinted for any
+profile but Balanced, as GNOME's own toggle is), Night Light (the
+`org.gnome.settings-daemon.plugins.color` `night-light-enabled` key, looked up
+through `SettingsSchemaSource` first) and a Microphone slider (the default Gvc
+source in `services/volume.js`; the leading glyph mutes). Their names come from
+the gnome-shell and Settings translations.
 
 **There is no backdrop blur, by decision.** `BoxPointer` sets
 `OffscreenRedirect.ALWAYS`, so a `Shell.BlurEffect` in BACKGROUND mode inside a
@@ -329,8 +377,8 @@ bridge therefore only reads their public properties (`title`, `subtitle`,
 `gicon`, `checked`) and drives them the way `St.Button` does — flipping `checked`
 first when `toggle-mode` is set, then emitting `clicked`, because that is the
 order a real click produces and handlers read the current state. `ControlCenter`
-reconciles one `CCTile` per tile into `.lintel-cc-extensions` at the bottom of
-the popup (reconcile, not rebuild: `changed` also fires for a plain state flip).
+reconciles one `CCTile` per tile and appends them to the module grid after Focus
+(reconcile, not rebuild: `changed` also fires for a plain state flip).
 
 `QuickSlider` items are skipped — non-reactive and title-less, a capsule cannot
 stand in for a slider — and so is any bare custom widget. Those are the only
@@ -371,8 +419,8 @@ merges the two sources, adapters first.
 Control Center controls are wired to existing backends only — no daemon is
 reimplemented: volume via `Gvc`, brightness via
 `org.gnome.SettingsDaemon.Power.Screen` or, when there's no D-Bus backlight,
-`brightnessctl` (verified present on the dev machine), Wi-Fi via NetworkManager
-`WirelessEnabled`, Bluetooth/Airplane via
+`brightnessctl` (verified present on the dev machine), Wi-Fi and wired state via
+NetworkManager (libnm devices, `WirelessEnabled`), Bluetooth/Airplane via
 `org.gnome.SettingsDaemon.Rfkill`, Now Playing through MPRIS, and Dark Mode /
 Focus (Do Not Disturb, `show-banners`) through their gsettings keys. AirDrop has
 no GNOME backend at all, so its capsule launches the first installed

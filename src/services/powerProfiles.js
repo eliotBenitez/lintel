@@ -7,7 +7,7 @@
 import Gio from 'gi://Gio';
 import GObject from 'gi://GObject';
 
-import {_} from '../i18n.js';
+import {_, pgettext} from '../i18n.js';
 
 const BUS_NAME = 'org.freedesktop.UPower.PowerProfiles';
 const OBJECT_PATH = '/org/freedesktop/UPower/PowerProfiles';
@@ -91,5 +91,22 @@ export function powerProfileLabel(profile) {
         return _('High Performance');
     default:
         return _('Custom');
+    }
+}
+
+/**
+ * The same profiles named for a status line under a half-width capsule, where
+ * the full names ("Энергосбережение") do not fit.
+ */
+export function powerProfileShortLabel(profile) {
+    switch (profile) {
+    case 'power-saver':
+        return pgettext('power profile, short', 'Saver');
+    case 'balanced':
+        return pgettext('power profile, short', 'Balanced');
+    case 'performance':
+        return pgettext('power profile, short', 'Performance');
+    default:
+        return pgettext('power profile, short', 'Custom');
     }
 }

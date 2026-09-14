@@ -8,7 +8,7 @@
 
 [![GNOME Shell 50 | 51](https://img.shields.io/badge/GNOME%20Shell-50%20%7C%2051-4a86cf?logo=gnome&logoColor=white)](metadata.json)
 [![License: GPL-2.0-or-later](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](LICENSE)
-![Version 0.16.1](https://img.shields.io/badge/version-0.16.1-8a63d2)
+![Version 0.17.0](https://img.shields.io/badge/version-0.17.0-8a63d2)
 
 **English** · [Русский](README.ru.md)
 
@@ -64,8 +64,14 @@ restores the stock top bar right away, with no need to log out.**
   - Display and Sound sliders
   - utility buttons
 
-  Toggles from other extensions' Quick Settings also show up here. Caffeine
-  gets a dedicated adapter.
+  **Edit Controls** rearranges the popup in place: remove controls, add them
+  back, reorder them, and switch each one between a circle and a wide capsule.
+  Airplane Mode, Power Mode, Night Light and a Microphone slider are available
+  there too, off by default.
+  Controls your hardware lacks (Bluetooth, Wi-Fi on a wired PC, brightness on a
+  desktop monitor) are hidden and the rest move up to fill the gap. Toggles from
+  other extensions' Quick Settings also show up here. Caffeine gets a dedicated
+  adapter.
 - **Separate Wi-Fi and battery menus.** The Wi-Fi menu shows live networks, the
   active connection and a radio switch. The battery menu shows charge, time
   remaining, power source and power profiles.

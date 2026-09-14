@@ -350,41 +350,24 @@
  * `width` here is the CONTENT width — St adds `padding` outside it rather than
  * inside, so this is the width the modules actually get, not a border box to
  * subtract padding from. Measured on a render: width 308 produced 308.4px of
- * module. 292 - 12 gutter, halved, lands the columns on 140 on its own; the
- * explicit width below is documentary, because both columns carry x_expand and
- * grow to fill this width regardless. */
+ * module. 140 + 12 gutter + 140 = 292, so the grid columns fill it exactly. */
 .lintel-cc-content {
     spacing: 8px;
     padding: 8px;
     width: 292px;
 }
 
-.lintel-cc-primary,
-.lintel-cc-actions {
-    spacing: 12px;
+/* Module grid (src/widgets/ccGrid.js): four cells per row in two halves.
+ * 62 + 16 pair gap + 62 = 140 per half, 140 + 12 gutter + 140 = 292. The cell
+ * width is derived from the content width, so only the gaps are declared. */
+.lintel-cc-grid {
+    -lintel-grid-gutter: 12px;
+    -lintel-grid-pair-gap: 16px;
+    -lintel-grid-row-gap: 8px;
 }
 
-.lintel-cc-connectivity,
-.lintel-cc-primary-right {
+.lintel-cc-sliders {
     spacing: 8px;
-    width: 140px;
-}
-
-.lintel-cc-utility-row {
-    spacing: 8px;
-}
-
-/* Mirrored third-party Quick Settings toggles: full-width capsules stacked like
- * the connectivity column, so they read as part of the same grid. The box is
- * hidden outright when no other extension contributes a tile. */
-.lintel-cc-extensions {
-    spacing: 8px;
-}
-
-/* Two circles filling one column: 62 + 16 + 62 = 140. */
-.lintel-cc-circle-row {
-    spacing: 16px;
-    width: 140px;
 }
 
 /* Connectivity and Focus capsules.
@@ -544,60 +527,26 @@
     box-shadow: 0 0 0 1px rgba(150, 207, 255, 0.78);
 }
 
-/* Square modules and toggle state. */
-.lintel-cc-action {
-    min-width: 0;
-    min-height: 69px;
-    background-color: rgba(35, 41, 48, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+/* A control resized to one cell is a circle: the glyph sits on the plate
+ * itself, without the capsule's inner disc, and an active one is solid blue
+ * with a white glyph. The grid allocates it a square cell. */
+.lintel-cc-tile.lintel-cc-tile-compact {
+    min-height: 0;
+    padding: 0;
     border-radius: 999px;
-    box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.18);
-    transition-duration: 160ms;
 }
 
-.lintel-cc-action:hover {
-    background-color: rgba(50, 57, 65, 0.78);
-    border-color: rgba(255, 255, 255, 0.22);
+.lintel-cc-tile-compact .lintel-cc-tile-box {
+    spacing: 0;
 }
 
-.lintel-cc-action:focus {
-    background-color: rgba(50, 57, 65, 0.80);
-    border-color: rgba(126, 190, 255, 0.94);
-    box-shadow: 0 0 0 1px rgba(34, 139, 255, 0.50);
-}
-
-.lintel-cc-action:active {
-    background-color: rgba(60, 68, 77, 0.84);
-}
-
-.lintel-cc-action:checked {
-    background-color: #0a84ff;
-    border-color: rgba(255, 255, 255, 0.20);
-}
-
-.lintel-cc-action:checked:focus {
-    border-color: rgba(172, 218, 255, 0.96);
-    box-shadow: 0 0 0 1px rgba(34, 139, 255, 0.62);
-}
-
-.lintel-cc-action:insensitive {
-    background-color: rgba(35, 41, 48, 0.55);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: none;
-}
-
-.lintel-cc-action-icon {
-    icon-size: 20px;
-    color: #ffffff;
-}
-
-.lintel-cc-navigation .lintel-cc-action-icon {
-    color: rgba(255, 255, 255, 0.92);
-}
-
-.lintel-cc-utility .lintel-cc-action-icon,
-.lintel-cc-circle-action .lintel-cc-action-icon {
+.lintel-cc-tile-compact .lintel-cc-tile-icon,
+.lintel-cc-tile-compact .lintel-cc-tile-icon:checked {
     icon-size: 22px;
+    padding: 0;
+    color: #ffffff;
+    background-color: transparent;
+    border-width: 0;
 }
 
 /* Labelled Display and Sound modules. */
@@ -657,10 +606,6 @@
 }
 
 /* Reference circles measure 61pt across; 62 keeps the pair on the 140px column. */
-.lintel-cc-circle-action {
-    width: 62px;
-    min-height: 62px;
-}
 
 .lintel-cc-edit-controls {
     color: rgba(255, 255, 255, 0.88);
@@ -686,6 +631,145 @@
     background-color: rgba(50, 57, 65, 0.80);
     border-color: rgba(126, 190, 255, 0.94);
     box-shadow: 0 0 0 1px rgba(34, 139, 255, 0.50);
+}
+
+.lintel-cc-edit-controls.lintel-cc-edit-done {
+    color: #ffffff;
+    background-color: #0a84ff;
+    border-color: rgba(255, 255, 255, 0.30);
+    font-weight: 600;
+}
+
+/* Edit mode. Tahoe edits in place: a remove badge on every control's top-left
+ * corner, the popup otherwise unchanged. Selecting a control (the shield over
+ * it takes the click so the control itself is not operated) opens a toolbar to
+ * move or resize it; removed controls wait in the gallery below. */
+.lintel-cc-slot-shield {
+    border: 2px solid transparent;
+    border-radius: 22px;
+    transition-duration: 120ms;
+}
+
+.lintel-cc-slot-shield.lintel-cc-shape-small {
+    border-radius: 999px;
+}
+
+.lintel-cc-slot-shield.lintel-cc-shape-large {
+    border-radius: 24px;
+}
+
+.lintel-cc-slot-shield:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.lintel-cc-slot-shield:checked,
+.lintel-cc-slot-shield:focus {
+    border-color: #0a84ff;
+}
+
+.lintel-cc-slot-remove {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    color: #1d1d1f;
+    background-color: rgba(236, 236, 240, 0.97);
+    border-radius: 999px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+.lintel-cc-slot-remove StIcon {
+    icon-size: 10px;
+}
+
+.lintel-cc-edit-toolbar,
+.lintel-cc-gallery {
+    background-color: rgba(35, 41, 48, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 22px;
+    box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.18);
+}
+
+.lintel-cc-edit-toolbar {
+    padding: 6px 6px 6px 14px;
+    spacing: 4px;
+}
+
+.lintel-cc-edit-toolbar-title,
+.lintel-cc-gallery-title,
+.lintel-cc-gallery-item {
+    color: #ffffff;
+    font-family: "Adwaita Sans";
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.48);
+}
+
+.lintel-cc-edit-toolbar-title {
+    font-size: 9.25pt;
+    font-weight: 600;
+}
+
+.lintel-cc-edit-tool {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    font-size: 8.25pt;
+    font-weight: 600;
+    transition-duration: 100ms;
+}
+
+.lintel-cc-edit-tool:hover,
+.lintel-cc-edit-tool:focus {
+    background-color: rgba(255, 255, 255, 0.24);
+}
+
+.lintel-cc-edit-tool:insensitive {
+    color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.lintel-cc-edit-tool StIcon {
+    icon-size: 12px;
+}
+
+.lintel-cc-gallery {
+    padding: 8px;
+    spacing: 2px;
+}
+
+.lintel-cc-gallery-title {
+    padding: 0 6px 4px 6px;
+    font-size: 9.25pt;
+    font-weight: 600;
+}
+
+.lintel-cc-gallery-item {
+    padding: 5px 6px;
+    border-radius: 14px;
+    font-size: 9pt;
+    transition-duration: 100ms;
+}
+
+.lintel-cc-gallery-item:hover,
+.lintel-cc-gallery-item:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.lintel-cc-gallery-item-box {
+    spacing: 10px;
+}
+
+.lintel-cc-gallery-icon {
+    icon-size: 16px;
+}
+
+.lintel-cc-gallery-add {
+    icon-size: 10px;
+    padding: 4px;
+    color: #ffffff;
+    background-color: #30d158;
+    border-radius: 999px;
 }
 
 /* ── macOS Tahoe Notification Center ───────────────────────────────────

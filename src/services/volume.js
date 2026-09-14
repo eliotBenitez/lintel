@@ -14,17 +14,81 @@ export const VolumeService = GObject.registerClass({
         super._init();
         this._sink = null;
         this._sinkIds = [];
+        this._source = null;
+        this._sourceIds = [];
         this._control = new Gvc.MixerControl({name: 'Lintel'});
         this._stateId = this._control.connect(
             'state-changed', () => this._onState());
         this._defaultId = this._control.connect(
             'default-sink-changed', () => this._bindSink());
+        this._defaultSourceId = this._control.connect(
+            'default-source-changed', () => this._bindSource());
         this._control.open();
     }
 
     _onState() {
-        if (this._control.get_state() === Gvc.MixerControlState.READY)
+        if (this._control.get_state() === Gvc.MixerControlState.READY) {
             this._bindSink();
+            this._bindSource();
+        }
+    }
+
+    // ---- Input (microphone) -------------------------------------------------
+
+    _bindSource() {
+        this._unbindSource();
+        this._source = this._control.get_default_source();
+        if (this._source) {
+            for (const property of ['volume', 'is-muted']) {
+                this._sourceIds.push(this._source.connect(`notify::${property}`,
+                    () => this.emit('changed')));
+            }
+        }
+        this.emit('changed');
+    }
+
+    _unbindSource() {
+        if (this._source) {
+            for (const id of this._sourceIds)
+                this._source.disconnect(id);
+        }
+        this._sourceIds = [];
+        this._source = null;
+    }
+
+    get inputAvailable() {
+        return this._source != null;
+    }
+
+    get inputLevel() {
+        if (!this._source)
+            return 0;
+        const max = this._control.get_vol_max_norm();
+        return max > 0 ? this._source.volume / max : 0;
+    }
+
+    setInputLevel(fraction) {
+        if (!this._source)
+            return;
+        const max = this._control.get_vol_max_norm();
+        this._source.volume = Math.round(Math.max(0, Math.min(1, fraction)) * max);
+        this._source.push_volume();
+    }
+
+    toggleInputMute() {
+        if (this._source)
+            this._source.change_is_muted(!this._source.is_muted);
+    }
+
+    get inputIconName() {
+        const level = this.inputLevel;
+        if (!this._source || this._source.is_muted || level <= 0.01)
+            return 'microphone-sensitivity-muted-symbolic';
+        if (level < 0.34)
+            return 'microphone-sensitivity-low-symbolic';
+        if (level < 0.67)
+            return 'microphone-sensitivity-medium-symbolic';
+        return 'microphone-sensitivity-high-symbolic';
     }
 
     _bindSink() {
@@ -92,10 +156,13 @@ export const VolumeService = GObject.registerClass({
 
     destroy() {
         this._unbindSink();
+        this._unbindSource();
         if (this._stateId)
             this._control.disconnect(this._stateId);
         if (this._defaultId)
             this._control.disconnect(this._defaultId);
+        if (this._defaultSourceId)
+            this._control.disconnect(this._defaultSourceId);
         try {
             this._control.close();
         } catch (_e) {

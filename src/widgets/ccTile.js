@@ -41,7 +41,7 @@ class CCTile extends St.Button {
         });
         // macOS Tahoe: icon on the left, title/status left-aligned right beside
         // it (not centred in the capsule).
-        const labels = new St.BoxLayout({
+        this._labels = new St.BoxLayout({
             vertical: true,
             x_expand: true,
             x_align: Clutter.ActorAlign.START,
@@ -56,11 +56,27 @@ class CCTile extends St.Button {
             style_class: 'lintel-cc-tile-status',
             x_align: Clutter.ActorAlign.START,
         });
-        labels.add_child(this._title);
-        labels.add_child(this._status);
+        this._labels.add_child(this._title);
+        this._labels.add_child(this._status);
         box.add_child(this._icon);
-        box.add_child(labels);
+        box.add_child(this._labels);
         this.set_child(box);
+    }
+
+    /**
+     * A control resized to one grid cell is Tahoe's circle: the glyph alone,
+     * centred. The title stays the accessible name, so it is not lost.
+     */
+    setCompact(compact) {
+        this._labels.visible = !compact;
+        this._icon.x_expand = compact;
+        this._icon.x_align = compact
+            ? Clutter.ActorAlign.CENTER
+            : Clutter.ActorAlign.START;
+        if (compact)
+            this.add_style_class_name('lintel-cc-tile-compact');
+        else
+            this.remove_style_class_name('lintel-cc-tile-compact');
     }
 
     setTitle(text) {
@@ -88,38 +104,6 @@ class CCTile extends St.Button {
     setGicon(gicon) {
         if (gicon)
             this._icon.gicon = gicon;
-    }
-});
-
-/** A compact square Tahoe module used for icon-only actions and toggles. */
-export const CCActionButton = GObject.registerClass(
-class CCActionButton extends St.Button {
-    _init(iconName, accessibleName, toggleMode = false, styleClass = '') {
-        const classes = ['lintel-cc-action', styleClass]
-            .filter(Boolean).join(' ');
-        super._init({
-            style_class: classes,
-            accessible_name: accessibleName,
-            can_focus: true,
-            toggle_mode: toggleMode,
-            x_expand: true,
-        });
-
-        this._icon = new St.Icon({
-            icon_name: iconName,
-            style_class: 'lintel-cc-action-icon',
-            x_align: Clutter.ActorAlign.CENTER,
-            y_align: Clutter.ActorAlign.CENTER,
-        });
-        this.set_child(this._icon);
-    }
-
-    setActive(active) {
-        this.checked = active;
-    }
-
-    setIcon(name) {
-        this._icon.icon_name = name;
     }
 });
 

@@ -23,6 +23,40 @@
   open popup. Spend one throwaway click before asserting anything, or a working
   control looks dead. `gnome-shell-test-tool` uses temporary XDG dirs, so
   settings the test writes do not leak into the live session.
+- The headless shell talks to the host's system bus, so NetworkManager, UPower
+  and `brightnessctl` report the dev laptop's real hardware, while session
+  services such as GNOME's Rfkill are absent (Bluetooth reads as missing). To
+  exercise desktop/PC cases, shadow the service getters on the instance with
+  `Object.defineProperty(cc._net, 'wifiAvailable', {get: () => false})` and
+  call `cc._sync()`.
+- NetworkManager running does not mean Wi-Fi exists: its root `WirelessEnabled`
+  is true on a machine with no Wi-Fi card. Ask libnm for a `DeviceType.WIFI`
+  device. Veth, bridge and tun devices are separate device types, so filtering
+  on `DeviceType.ETHERNET` alone leaves only real wired ports.
+- A `CCTile` in compact mode has a natural height of only its 22px glyph. The
+  grid must allocate circles a square cell explicitly, or a row made only of
+  circles collapses to 24px tall.
+- `Clutter.BinLayout` (GNOME 50) fills a child along an axis only when the child
+  *expands* on it; `y_align: FILL` without `y_expand` centres the child at its
+  natural height. Allocation dumps of the container look right while the child
+  is drawn smaller — measure the child itself.
+- GJS `Clutter.LayoutManager` subclasses on GNOME 50 use
+  `vfunc_allocate(container, box)` (no flags) and
+  `vfunc_get_preferred_height(container, forWidth)` returning `[min, nat]`;
+  the box is already the content box, so offset children by `box.x1/y1`.
+  Custom lengths are read with `peek_theme_node()?.lookup_length(name, false)`,
+  which returns `[found, value]` and is safe before the actor is styled.
+- The headless test shell reaches the host's power-profiles-daemon on the
+  system bus: a test that clicks Power Mode changes the laptop's real profile
+  unless `setProfile` is stubbed. The same goes for anything NetworkManager or
+  rfkill backed.
+- `msgmerge` can attach `fuzzy` to an existing flags line
+  (`#, fuzzy, javascript-format`); stripping only a bare `#, fuzzy` line leaves
+  the translation ignored by `msgfmt`. Check with
+  `msgattrib --only-fuzzy po/ru.po`.
+- `Gio.Settings.set_*` on a key the compiled schema lacks aborts the Shell
+  process, not just the extension. Check `settings.settings_schema.has_key()`
+  before writing any key added in a newer version.
 
 ## Battery
 

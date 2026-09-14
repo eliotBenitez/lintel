@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Lintel 0.16.1\n"
+"Project-Id-Version: Lintel 0.17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-13 00:55+0300\n"
+"POT-Creation-Date: 2026-09-14 14:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Move the pointer to the top edge to show the panel temporarily"
 msgstr ""
 
-#: prefs.js:208 src/widgets/notificationCenter.js:196
+#: prefs.js:208 src/widgets/notificationCenter.js:198
 msgid "Notification Center"
 msgstr ""
 
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Shown when nothing is focused; empty = hide"
 msgstr ""
 
-#: prefs.js:233 src/widgets/controlCenter.js:53
+#: prefs.js:233 src/widgets/controlCenter.js:111
 msgid "Control Center"
 msgstr ""
 
@@ -446,72 +446,74 @@ msgid ""
 "destructive: disabling restores the stock top bar without a logout."
 msgstr ""
 
-#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
-#: src/widgets/controlCenter.js:285 src/widgets/controlCenter.js:292
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:732
+#: src/widgets/controlCenter.js:742 src/widgets/controlCenter.js:753
+#: src/widgets/controlCenter.js:757 src/widgets/controlCenter.js:767
 msgid "On"
 msgstr ""
 
-#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
-#: src/widgets/controlCenter.js:285
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:732
+#: src/widgets/controlCenter.js:742 src/widgets/controlCenter.js:757
+#: src/widgets/controlCenter.js:767
 msgid "Off"
 msgstr ""
 
-#: src/services/battery.js:69
+#: src/services/battery.js:92
 msgid "Charging"
 msgstr ""
 
-#: src/services/battery.js:71 src/services/battery.js:79
+#: src/services/battery.js:94 src/services/battery.js:102
 msgid "On Battery"
 msgstr ""
 
-#: src/services/battery.js:73
+#: src/services/battery.js:96
 msgid "Empty"
 msgstr ""
 
-#: src/services/battery.js:75
+#: src/services/battery.js:98
 msgid "Fully Charged"
 msgstr ""
 
-#: src/services/battery.js:77
+#: src/services/battery.js:100
 msgid "Not Charging"
 msgstr ""
 
-#: src/services/battery.js:81 src/services/battery.js:92
+#: src/services/battery.js:104 src/services/battery.js:115
 #: src/widgets/batteryMenu.js:23 src/widgets/ncWidgets.js:564
 #: src/widgets/notificationCenter.js:50
 msgid "Battery"
 msgstr ""
 
-#: src/services/battery.js:90
+#: src/services/battery.js:113
 msgid "Power Adapter"
 msgstr ""
 
-#: src/services/battery.js:108
+#: src/services/battery.js:131
 #, javascript-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/services/battery.js:111
+#: src/services/battery.js:134
 #, javascript-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/services/battery.js:116
+#: src/services/battery.js:139
 #, javascript-format
 msgid "%s until full"
 msgstr ""
 
-#: src/services/battery.js:117
+#: src/services/battery.js:140
 #, javascript-format
 msgid "%s remaining"
 msgstr ""
 
-#: src/services/media.js:113 src/widgets/ccTile.js:164
-#: src/widgets/ccTile.js:214
+#: src/services/media.js:113 src/widgets/ccTile.js:148
+#: src/widgets/ccTile.js:198
 msgid "Not Playing"
 msgstr ""
 
@@ -528,6 +530,26 @@ msgid "High Performance"
 msgstr ""
 
 #: src/services/powerProfiles.js:93
+msgid "Custom"
+msgstr ""
+
+#: src/services/powerProfiles.js:104
+msgctxt "power profile, short"
+msgid "Saver"
+msgstr ""
+
+#: src/services/powerProfiles.js:106
+msgctxt "power profile, short"
+msgid "Balanced"
+msgstr ""
+
+#: src/services/powerProfiles.js:108
+msgctxt "power profile, short"
+msgid "Performance"
+msgstr ""
+
+#: src/services/powerProfiles.js:110
+msgctxt "power profile, short"
 msgid "Custom"
 msgstr ""
 
@@ -604,81 +626,116 @@ msgstr ""
 msgid "Battery Settings…"
 msgstr ""
 
-#: src/widgets/batteryMenu.js:121
+#: src/widgets/batteryMenu.js:123
 #, javascript-format
 msgid "Battery, %s, %s"
 msgstr ""
 
-#: src/widgets/batteryMenu.js:128
+#: src/widgets/batteryMenu.js:130
 #, javascript-format
 msgid "Power Source: %s"
 msgstr ""
 
-#: src/widgets/ccTile.js:139 src/widgets/notificationCenter.js:51
+#: src/widgets/ccTile.js:123 src/widgets/controlCenter.js:285
+#: src/widgets/notificationCenter.js:51
 msgid "Now Playing"
 msgstr ""
 
-#: src/widgets/ccTile.js:187
+#: src/widgets/ccTile.js:171
 msgid "Previous"
 msgstr ""
 
-#: src/widgets/ccTile.js:188
+#: src/widgets/ccTile.js:172
 msgid "Play"
 msgstr ""
 
-#: src/widgets/ccTile.js:189
+#: src/widgets/ccTile.js:173
 msgid "Next"
 msgstr ""
 
-#: src/widgets/ccTile.js:273
+#: src/widgets/ccTile.js:259
 #, javascript-format
 msgid "Toggle %s"
 msgstr ""
 
-#: src/widgets/ccTile.js:283
+#: src/widgets/ccTile.js:269
 #, javascript-format
 msgid "%s level"
 msgstr ""
 
-#: src/widgets/controlCenter.js:120 src/widgets/wifiMenu.js:23
-#: src/widgets/wifiMenu.js:53
+#: src/widgets/controlCenter.js:214 src/widgets/controlCenter.js:283
+#: src/widgets/wifiMenu.js:23 src/widgets/wifiMenu.js:53
 msgid "Wi-Fi"
 msgstr ""
 
-#: src/widgets/controlCenter.js:121
+#: src/widgets/controlCenter.js:219 src/widgets/controlCenter.js:286
 msgid "Bluetooth"
 msgstr ""
 
-#: src/widgets/controlCenter.js:129
-msgid "Focus"
-msgstr ""
-
-#: src/widgets/controlCenter.js:160
+#: src/widgets/controlCenter.js:226 src/widgets/controlCenter.js:288
 msgid "Stage Manager"
 msgstr ""
 
-#: src/widgets/controlCenter.js:167
+#: src/widgets/controlCenter.js:232 src/widgets/controlCenter.js:289
 msgid "Screen Mirroring"
 msgstr ""
 
-#: src/widgets/controlCenter.js:184
+#: src/widgets/controlCenter.js:233 src/widgets/controlCenter.js:290
 msgid "Dark Mode"
 msgstr ""
 
-#: src/widgets/controlCenter.js:189
+#: src/widgets/controlCenter.js:237 src/widgets/controlCenter.js:291
 msgid "Screenshot"
 msgstr ""
 
-#: src/widgets/controlCenter.js:204
+#: src/widgets/controlCenter.js:241 src/widgets/controlCenter.js:292
+msgid "Focus"
+msgstr ""
+
+#: src/widgets/controlCenter.js:265 src/widgets/controlCenter.js:298
 msgid "Display"
 msgstr ""
 
-#: src/widgets/controlCenter.js:210
+#: src/widgets/controlCenter.js:269 src/widgets/controlCenter.js:299
 msgid "Sound"
 msgstr ""
 
-#: src/widgets/controlCenter.js:227 src/widgets/controlCenter.js:228
+#: src/widgets/controlCenter.js:325 src/widgets/controlCenter.js:326
+#: src/widgets/controlCenter.js:446
 msgid "Edit Controls"
+msgstr ""
+
+#: src/widgets/controlCenter.js:380 src/widgets/notificationCenter.js:667
+#, javascript-format
+msgid "Remove %s"
+msgstr ""
+
+#: src/widgets/controlCenter.js:446 src/widgets/notificationCenter.js:802
+msgid "Done"
+msgstr ""
+
+#: src/widgets/controlCenter.js:491
+#, javascript-format
+msgid "Move %s earlier"
+msgstr ""
+
+#: src/widgets/controlCenter.js:493
+#, javascript-format
+msgid "Move %s later"
+msgstr ""
+
+#: src/widgets/controlCenter.js:497
+#, javascript-format
+msgid "Change %s size"
+msgstr ""
+
+#: src/widgets/controlCenter.js:513
+msgid "Add Controls"
+msgstr ""
+
+#: src/widgets/controlCenter.js:534 src/widgets/notificationCenter.js:772
+#, javascript-format
+msgid "Add %s"
 msgstr ""
 
 #: src/widgets/ncWidgets.js:49
@@ -736,46 +793,32 @@ msgctxt "widget size"
 msgid "L"
 msgstr ""
 
-#: src/widgets/notificationCenter.js:205
+#: src/widgets/notificationCenter.js:207
 msgid "Clear all notifications"
 msgstr ""
 
-#: src/widgets/notificationCenter.js:250 src/widgets/notificationCenter.js:252
-#: src/widgets/notificationCenter.js:720
+#: src/widgets/notificationCenter.js:258 src/widgets/notificationCenter.js:260
+#: src/widgets/notificationCenter.js:802
 msgid "Edit Widgets"
 msgstr ""
 
-#: src/widgets/notificationCenter.js:585
-#, javascript-format
-msgid "Remove %s"
-msgstr ""
-
-#: src/widgets/notificationCenter.js:591
+#: src/widgets/notificationCenter.js:673
 #, javascript-format
 msgid "Move %s up"
 msgstr ""
 
-#: src/widgets/notificationCenter.js:594
+#: src/widgets/notificationCenter.js:676
 #, javascript-format
 msgid "Move %s down"
 msgstr ""
 
-#: src/widgets/notificationCenter.js:599
+#: src/widgets/notificationCenter.js:681
 #, javascript-format
 msgid "Change %s widget size"
 msgstr ""
 
-#: src/widgets/notificationCenter.js:667
+#: src/widgets/notificationCenter.js:749
 msgid "Add Widgets"
-msgstr ""
-
-#: src/widgets/notificationCenter.js:690
-#, javascript-format
-msgid "Add %s"
-msgstr ""
-
-#: src/widgets/notificationCenter.js:720
-msgid "Done"
 msgstr ""
 
 #: src/widgets/systemMenu.js:204

@@ -128,6 +128,15 @@
       <default>'custom'</default>
       <summary>custom = separate Wi-Fi, battery and Control Center menus; native = open Quick Settings</summary>
     </key>
+    <key name="control-center-controls" type="as">
+      <default>['wifi', 'network', 'media', 'bluetooth', 'airdrop', 'stage-manager', 'screen-mirroring', 'dark-mode', 'screenshot', 'focus', 'display', 'sound']</default>
+      <summary>Ordered identifiers of the controls shown in the custom Control Center</summary>
+      <description>Grid controls are laid out in this order; display, sound and microphone are the sliders below the grid, in their relative order. Identifiers left out are removed from Control Center; airplane, power-mode, night-light and microphone are available but not shown by default.</description>
+    </key>
+    <key name="control-center-control-sizes" type="a{ss}">
+      <default>{'wifi': 'wide', 'network': 'wide', 'bluetooth': 'wide', 'airdrop': 'wide', 'stage-manager': 'small', 'screen-mirroring': 'small', 'dark-mode': 'small', 'screenshot': 'small', 'focus': 'wide', 'airplane': 'small', 'power-mode': 'wide', 'night-light': 'small'}</default>
+      <summary>Control Center control sizes: small (a circle) or wide (half the width)</summary>
+    </key>
 
     <!-- Clock (Stage 7) -->
     <key name="clock-show-weekday" type="b">

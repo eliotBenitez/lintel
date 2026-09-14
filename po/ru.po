@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lintel 0.16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-13 00:55+0300\n"
+"POT-Creation-Date: 2026-09-14 14:32+0300\n"
 "PO-Revision-Date: 2026-09-13 00:55+0300\n"
 "Last-Translator: Lintel contributors\n"
 "Language-Team: Russian\n"
@@ -61,7 +61,7 @@ msgstr "Показывать в полноэкранном режиме"
 msgid "Move the pointer to the top edge to show the panel temporarily"
 msgstr "Подведите указатель к верхнему краю, чтобы временно показать панель"
 
-#: prefs.js:208 src/widgets/notificationCenter.js:196
+#: prefs.js:208 src/widgets/notificationCenter.js:198
 msgid "Notification Center"
 msgstr "Центр уведомлений"
 
@@ -131,7 +131,7 @@ msgstr "Надпись в режиме ожидания"
 msgid "Shown when nothing is focused; empty = hide"
 msgstr "Показывается, когда ничего не в фокусе; пустое значение = скрыть"
 
-#: prefs.js:233 src/widgets/controlCenter.js:53
+#: prefs.js:233 src/widgets/controlCenter.js:111
 msgid "Control Center"
 msgstr "Центр управления"
 
@@ -459,47 +459,49 @@ msgstr ""
 "обратимы: при отключении стандартная верхняя панель восстанавливается без "
 "выхода из системы."
 
-#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
-#: src/widgets/controlCenter.js:285 src/widgets/controlCenter.js:292
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:732
+#: src/widgets/controlCenter.js:742 src/widgets/controlCenter.js:753
+#: src/widgets/controlCenter.js:757 src/widgets/controlCenter.js:767
 msgid "On"
 msgstr "Вкл."
 
-#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:282
-#: src/widgets/controlCenter.js:285
+#: src/adapters/caffeine.js:55 src/widgets/controlCenter.js:732
+#: src/widgets/controlCenter.js:742 src/widgets/controlCenter.js:757
+#: src/widgets/controlCenter.js:767
 msgid "Off"
 msgstr "Выкл."
 
-#: src/services/battery.js:69
+#: src/services/battery.js:92
 msgid "Charging"
 msgstr "Заряжается"
 
-#: src/services/battery.js:71 src/services/battery.js:79
+#: src/services/battery.js:94 src/services/battery.js:102
 msgid "On Battery"
 msgstr "От аккумулятора"
 
-#: src/services/battery.js:73
+#: src/services/battery.js:96
 msgid "Empty"
 msgstr "Разряжен"
 
-#: src/services/battery.js:75
+#: src/services/battery.js:98
 msgid "Fully Charged"
 msgstr "Полностью заряжен"
 
-#: src/services/battery.js:77
+#: src/services/battery.js:100
 msgid "Not Charging"
 msgstr "Не заряжается"
 
-#: src/services/battery.js:81 src/services/battery.js:92
+#: src/services/battery.js:104 src/services/battery.js:115
 #: src/widgets/batteryMenu.js:23 src/widgets/ncWidgets.js:564
 #: src/widgets/notificationCenter.js:50
 msgid "Battery"
 msgstr "Аккумулятор"
 
-#: src/services/battery.js:90
+#: src/services/battery.js:113
 msgid "Power Adapter"
 msgstr "Адаптер питания"
 
-#: src/services/battery.js:108
+#: src/services/battery.js:131
 #, javascript-format
 msgid "%d hour"
 msgid_plural "%d hours"
@@ -507,7 +509,7 @@ msgstr[0] "%d час"
 msgstr[1] "%d часа"
 msgstr[2] "%d часов"
 
-#: src/services/battery.js:111
+#: src/services/battery.js:134
 #, javascript-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -515,18 +517,18 @@ msgstr[0] "%d минута"
 msgstr[1] "%d минуты"
 msgstr[2] "%d минут"
 
-#: src/services/battery.js:116
+#: src/services/battery.js:139
 #, javascript-format
 msgid "%s until full"
 msgstr "%s до полной зарядки"
 
-#: src/services/battery.js:117
+#: src/services/battery.js:140
 #, javascript-format
 msgid "%s remaining"
 msgstr "Осталось: %s"
 
-#: src/services/media.js:113 src/widgets/ccTile.js:164
-#: src/widgets/ccTile.js:214
+#: src/services/media.js:113 src/widgets/ccTile.js:148
+#: src/widgets/ccTile.js:198
 msgid "Not Playing"
 msgstr "Ничего не воспроизводится"
 
@@ -543,6 +545,26 @@ msgid "High Performance"
 msgstr "Высокая производительность"
 
 #: src/services/powerProfiles.js:93
+msgid "Custom"
+msgstr "Другой"
+
+#: src/services/powerProfiles.js:104
+msgctxt "power profile, short"
+msgid "Saver"
+msgstr "Экономия"
+
+#: src/services/powerProfiles.js:106
+msgctxt "power profile, short"
+msgid "Balanced"
+msgstr "Баланс"
+
+#: src/services/powerProfiles.js:108
+msgctxt "power profile, short"
+msgid "Performance"
+msgstr "Мощность"
+
+#: src/services/powerProfiles.js:110
+msgctxt "power profile, short"
 msgid "Custom"
 msgstr "Другой"
 
@@ -619,82 +641,117 @@ msgstr "Режим энергопотребления"
 msgid "Battery Settings…"
 msgstr "Настройки питания…"
 
-#: src/widgets/batteryMenu.js:121
+#: src/widgets/batteryMenu.js:123
 #, javascript-format
 msgid "Battery, %s, %s"
 msgstr "Аккумулятор, %s, %s"
 
-#: src/widgets/batteryMenu.js:128
+#: src/widgets/batteryMenu.js:130
 #, javascript-format
 msgid "Power Source: %s"
 msgstr "Источник питания: %s"
 
-#: src/widgets/ccTile.js:139 src/widgets/notificationCenter.js:51
+#: src/widgets/ccTile.js:123 src/widgets/controlCenter.js:285
+#: src/widgets/notificationCenter.js:51
 msgid "Now Playing"
 msgstr "Сейчас играет"
 
-#: src/widgets/ccTile.js:187
+#: src/widgets/ccTile.js:171
 msgid "Previous"
 msgstr "Предыдущая композиция"
 
-#: src/widgets/ccTile.js:188
+#: src/widgets/ccTile.js:172
 msgid "Play"
 msgstr "Воспроизвести"
 
-#: src/widgets/ccTile.js:189
+#: src/widgets/ccTile.js:173
 msgid "Next"
 msgstr "Следующая композиция"
 
-#: src/widgets/ccTile.js:273
+#: src/widgets/ccTile.js:259
 #, javascript-format
 msgid "Toggle %s"
 msgstr "Переключить «%s»"
 
-#: src/widgets/ccTile.js:283
+#: src/widgets/ccTile.js:269
 #, javascript-format
 msgid "%s level"
 msgstr "Уровень: %s"
 
-#: src/widgets/controlCenter.js:120 src/widgets/wifiMenu.js:23
-#: src/widgets/wifiMenu.js:53
+#: src/widgets/controlCenter.js:214 src/widgets/controlCenter.js:283
+#: src/widgets/wifiMenu.js:23 src/widgets/wifiMenu.js:53
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: src/widgets/controlCenter.js:121
+#: src/widgets/controlCenter.js:219 src/widgets/controlCenter.js:286
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/widgets/controlCenter.js:129
-msgid "Focus"
-msgstr "Фокусирование"
-
-#: src/widgets/controlCenter.js:160
+#: src/widgets/controlCenter.js:226 src/widgets/controlCenter.js:288
 msgid "Stage Manager"
 msgstr "Постановщик"
 
-#: src/widgets/controlCenter.js:167
+#: src/widgets/controlCenter.js:232 src/widgets/controlCenter.js:289
 msgid "Screen Mirroring"
 msgstr "Повтор экрана"
 
-#: src/widgets/controlCenter.js:184
+#: src/widgets/controlCenter.js:233 src/widgets/controlCenter.js:290
 msgid "Dark Mode"
 msgstr "Тёмное оформление"
 
-#: src/widgets/controlCenter.js:189
+#: src/widgets/controlCenter.js:237 src/widgets/controlCenter.js:291
 msgid "Screenshot"
 msgstr "Снимок экрана"
 
-#: src/widgets/controlCenter.js:204
+#: src/widgets/controlCenter.js:241 src/widgets/controlCenter.js:292
+msgid "Focus"
+msgstr "Фокус"
+
+#: src/widgets/controlCenter.js:265 src/widgets/controlCenter.js:298
 msgid "Display"
 msgstr "Экран"
 
-#: src/widgets/controlCenter.js:210
+#: src/widgets/controlCenter.js:269 src/widgets/controlCenter.js:299
 msgid "Sound"
 msgstr "Звук"
 
-#: src/widgets/controlCenter.js:227 src/widgets/controlCenter.js:228
+#: src/widgets/controlCenter.js:325 src/widgets/controlCenter.js:326
+#: src/widgets/controlCenter.js:446
 msgid "Edit Controls"
 msgstr "Настроить элементы управления"
+
+#: src/widgets/controlCenter.js:380 src/widgets/notificationCenter.js:667
+#, javascript-format
+msgid "Remove %s"
+msgstr "Удалить «%s»"
+
+#: src/widgets/controlCenter.js:446 src/widgets/notificationCenter.js:802
+msgid "Done"
+msgstr "Готово"
+
+#: src/widgets/controlCenter.js:491
+#, javascript-format
+msgid "Move %s earlier"
+msgstr "Переместить «%s» раньше"
+
+#: src/widgets/controlCenter.js:493
+#, javascript-format
+msgid "Move %s later"
+msgstr "Переместить «%s» позже"
+
+#: src/widgets/controlCenter.js:497
+#, javascript-format
+msgid "Change %s size"
+msgstr "Изменить размер «%s»"
+
+#: src/widgets/controlCenter.js:513
+msgid "Add Controls"
+msgstr "Добавить элементы управления"
+
+#: src/widgets/controlCenter.js:534 src/widgets/notificationCenter.js:772
+#, javascript-format
+msgid "Add %s"
+msgstr "Добавить «%s»"
 
 #: src/widgets/ncWidgets.js:49
 msgid "Updating…"
@@ -751,47 +808,33 @@ msgctxt "widget size"
 msgid "L"
 msgstr "Б"
 
-#: src/widgets/notificationCenter.js:205
+#: src/widgets/notificationCenter.js:207
 msgid "Clear all notifications"
 msgstr "Очистить все уведомления"
 
-#: src/widgets/notificationCenter.js:250 src/widgets/notificationCenter.js:252
-#: src/widgets/notificationCenter.js:720
+#: src/widgets/notificationCenter.js:258 src/widgets/notificationCenter.js:260
+#: src/widgets/notificationCenter.js:802
 msgid "Edit Widgets"
 msgstr "Изменить виджеты"
 
-#: src/widgets/notificationCenter.js:585
-#, javascript-format
-msgid "Remove %s"
-msgstr "Удалить «%s»"
-
-#: src/widgets/notificationCenter.js:591
+#: src/widgets/notificationCenter.js:673
 #, javascript-format
 msgid "Move %s up"
 msgstr "Переместить «%s» вверх"
 
-#: src/widgets/notificationCenter.js:594
+#: src/widgets/notificationCenter.js:676
 #, javascript-format
 msgid "Move %s down"
 msgstr "Переместить «%s» вниз"
 
-#: src/widgets/notificationCenter.js:599
+#: src/widgets/notificationCenter.js:681
 #, javascript-format
 msgid "Change %s widget size"
 msgstr "Изменить размер виджета «%s»"
 
-#: src/widgets/notificationCenter.js:667
+#: src/widgets/notificationCenter.js:749
 msgid "Add Widgets"
 msgstr "Добавить виджеты"
-
-#: src/widgets/notificationCenter.js:690
-#, javascript-format
-msgid "Add %s"
-msgstr "Добавить «%s»"
-
-#: src/widgets/notificationCenter.js:720
-msgid "Done"
-msgstr "Готово"
 
 #: src/widgets/systemMenu.js:204
 msgid "Lintel System Menu"
