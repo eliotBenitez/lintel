@@ -409,8 +409,8 @@ msgid "Family"
 msgstr "Семейство"
 
 #: prefs.js:473
-msgid "Prepended to the SF Pro / Adwaita fallback"
-msgstr "Добавляется перед резервными шрифтами SF Pro / Adwaita"
+msgid "One font family name; empty = Cantarell"
+msgstr "Одно название шрифта; пусто — Cantarell"
 
 #: prefs.js:475
 msgid "Weight"

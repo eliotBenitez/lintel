@@ -152,6 +152,16 @@ export const PanelAdapter = {
         }
     },
 
+    /**
+     * MessageTray.bannerBlocked is setter-only in Shell 50 (js/ui/messageTray.js);
+     * its current value lives in the private `_bannerBlocked`. Returns null when
+     * that field is gone, so callers skip restoring a value they never read.
+     */
+    get messageTrayBannerBlocked() {
+        const value = Main.messageTray?._bannerBlocked;
+        return typeof value === 'boolean' ? value : null;
+    },
+
     closeActiveMenu() {
         try {
             Main.panel?.menuManager?.activeMenu?.close();

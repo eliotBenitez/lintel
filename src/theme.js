@@ -20,6 +20,8 @@ import St from 'gi://St';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
+import {sanitizeFontFamily, sanitizeFontWeight} from './cssValues.js';
+
 const FILE_NAME = 'lintel-dynamic.css';
 const OVERVIEW_CLASS = 'lintel-overview-transparent';
 const CONTRAST_SAMPLE_FRACTIONS = [0.08, 0.20, 0.34, 0.50, 0.66, 0.80, 0.92];
@@ -39,7 +41,6 @@ export class ThemeManager {
         this._background = null;
         this._backgroundId = 0;
         this._fullscreenId = 0;
-        this._focusWindowId = 0;
         this._monitorsId = 0;
         this._contrastId = 0;
         this._contrastSerial = 0;
@@ -85,8 +86,9 @@ export class ThemeManager {
 
         this._fullscreenId = global.display.connect(
             'in-fullscreen-changed', () => this.requestContrastUpdate(250));
-        this._focusWindowId = global.display.connect(
-            'notify::focus-window', () => this.requestContrastUpdate(250));
+        // No focus-window hook: windows never sit under the panel strut, so a
+        // focus change does not change the sampled pixels. Fullscreen content is
+        // covered by in-fullscreen-changed and by FullscreenReveal's callback.
         this._monitorsId = Main.layoutManager.connect(
             'monitors-changed', () => this.requestContrastUpdate(250));
 
@@ -300,15 +302,17 @@ export class ThemeManager {
         if (h > 0)
             panel.push(`height: ${h}px !important;`);
 
-        const fam = gs('font-family', '');
         // St's CSS parser accepts a single Pango family here, not a browser-style
         // comma-separated fallback list. Pango falls back to the system sans
-        // font if a user-requested family is unavailable.
+        // font if a user-requested family is unavailable. Both font values are
+        // free text from dconf, so anything that could break out of the
+        // declaration is dropped (see cssValues.js).
+        const fam = sanitizeFontFamily(gs('font-family', ''));
         panel.push(`font-family: "${fam || 'Cantarell'}";`);
         const fs = gd('font-size-pt', 10.5);
         if (fs > 0)
             panel.push(`font-size: ${fs}pt;`);
-        const fw = gs('font-weight', 'normal');
+        const fw = sanitizeFontWeight(gs('font-weight', 'normal'));
         if (fw)
             panel.push(`font-weight: ${fw};`);
 
@@ -432,10 +436,6 @@ export class ThemeManager {
         if (this._fullscreenId) {
             global.display.disconnect(this._fullscreenId);
             this._fullscreenId = 0;
-        }
-        if (this._focusWindowId) {
-            global.display.disconnect(this._focusWindowId);
-            this._focusWindowId = 0;
         }
         if (this._monitorsId) {
             Main.layoutManager.disconnect(this._monitorsId);

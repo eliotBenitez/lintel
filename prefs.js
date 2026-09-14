@@ -13,6 +13,7 @@ import Gtk from 'gi://Gtk';
 import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 import {_} from './src/i18n.js';
+import {sanitizeFontFamily, sanitizeFontWeight} from './src/cssValues.js';
 import {
     newSession,
     preferredLanguage,
@@ -34,6 +35,21 @@ function addEntry(group, settings, key, title, subtitle = '') {
         row.set_tooltip_text(subtitle);
     group.add(row);
     settings.bind(key, row, 'text', Gio.SettingsBindFlags.DEFAULT);
+    return row;
+}
+
+// Mark an entry red while its text would be ignored by the panel.
+function addValidatedEntry(group, settings, key, title, subtitle, sanitize) {
+    const row = addEntry(group, settings, key, title, subtitle);
+    const sync = () => {
+        const text = row.text.trim();
+        if (text && !sanitize(text))
+            row.add_css_class('error');
+        else
+            row.remove_css_class('error');
+    };
+    row.connect('notify::text', sync);
+    sync();
     return row;
 }
 
@@ -469,10 +485,12 @@ export default class LintelPreferences extends ExtensionPreferences {
         page.add(metrics);
 
         const font = new Adw.PreferencesGroup({title: _('Font')});
-        addEntry(font, settings, 'font-family',
-            _('Family'), _('Prepended to the SF Pro / Adwaita fallback'));
-        addEntry(font, settings, 'font-weight',
-            _('Weight'), _('e.g. normal, bold, 600; empty = inherit'));
+        addValidatedEntry(font, settings, 'font-family',
+            _('Family'), _('One font family name; empty = Cantarell'),
+            sanitizeFontFamily);
+        addValidatedEntry(font, settings, 'font-weight',
+            _('Weight'), _('e.g. normal, bold, 600; empty = inherit'),
+            sanitizeFontWeight);
         addSpin(font, settings, 'font-size-pt',
             {title: _('Size (pt)'), subtitle: _('0 = inherit; 10.5pt = macOS’s 14px'),
                 lower: 0, upper: 48, step: 0.5, digits: 1});

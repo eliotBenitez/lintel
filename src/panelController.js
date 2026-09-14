@@ -30,6 +30,8 @@ import {LintelClock} from './widgets/clock.js';
 import {LintelNotificationCenter} from './widgets/notificationCenter.js';
 import {ThemeManager} from './theme.js';
 import {FullscreenReveal} from './fullscreenReveal.js';
+import {shutdownSystemStats} from './services/systemStats.js';
+import {shutdownWeather} from './services/weather.js';
 
 const PANEL_STYLE_CLASS = 'lintel';
 const SYSTEM_MENU_ROLE = 'lintel-system-menu';
@@ -526,6 +528,10 @@ export class PanelController {
         this._settings = null;
 
         this.restoreOriginalState();
+        // Backstop after every widget is gone: shared service stores outlive
+        // the modules' users if any single destroy() was missed.
+        shutdownWeather();
+        shutdownSystemStats();
 
         this._externalIndicators.destroy();
         this._notifications.destroy();

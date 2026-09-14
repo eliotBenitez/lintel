@@ -80,3 +80,19 @@
   pointer moves off once. It self-heals; do not reach into the private field.
 - A barrier does not release the pointer when triggered, so never place one on
   an edge shared with another monitor.
+
+## Shared module state
+
+- Module-level singletons (`_store` in `weather.js`, `systemStats.js`) survive
+  disable, because the Shell caches extension modules until relogin. A
+  refcount alone strands timers if one consumer's `destroy()` is missed, and a
+  consumer from a previous enable can decrement the *new* store's count.
+  Disable calls `shutdown*()` as a backstop, and consumers only touch the
+  refcount when `this._store === _store`.
+
+## Dynamic stylesheet
+
+- The generated sheet is loaded into the whole Shell theme, not scoped to the
+  panel: a setting value containing `}` escapes `#panel.lintel` and styles any
+  actor. Only validated values (`src/cssValues.js`) may be interpolated; free
+  text is rejected, not escaped.

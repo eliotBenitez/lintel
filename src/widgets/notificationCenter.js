@@ -867,10 +867,14 @@ export class LintelNotificationCenter {
 
         this._bannerBlockedCaptured = false;
         try {
-            // bannerBlocked is a setter-only public API in Shell 50; retain
-            // its backing state so teardown restores the exact prior value.
-            this._bannerBlocked = Boolean(Main.messageTray._bannerBlocked);
-            this._bannerBlockedCaptured = true;
+            // Retain the prior state so teardown restores the exact value. If
+            // it cannot be read, block anyway but leave it alone on close
+            // rather than unblocking something another component blocked.
+            const prior = PanelAdapter.messageTrayBannerBlocked;
+            if (prior !== null) {
+                this._bannerBlocked = prior;
+                this._bannerBlockedCaptured = true;
+            }
             Main.messageTray.bannerBlocked = true;
         } catch (_e) {
             // Cosmetic only; the center remains usable.

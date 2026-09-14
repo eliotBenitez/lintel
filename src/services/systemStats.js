@@ -85,6 +85,9 @@ export function parseNetDev(text, include) {
         if (!include(line.slice(0, colon).trim()))
             continue;
         const fields = line.slice(colon + 1).trim().split(/\s+/).map(Number);
+        // A short or garbled line would poison every later rate with NaN.
+        if (!Number.isFinite(fields[0]) || !Number.isFinite(fields[8]))
+            continue;
         rx += fields[0];
         tx += fields[8];
     }
@@ -150,6 +153,7 @@ const SystemStatsStore = GObject.registerClass({
 }, class SystemStatsStore extends GObject.Object {
     _init() {
         super._init();
+        this._destroyed = false;
         this._active = new Set();
         this._timerId = 0;
         this._lastSampleAt = 0;
@@ -174,6 +178,9 @@ const SystemStatsStore = GObject.registerClass({
     }
 
     setActive(consumer, active) {
+        // A consumer that outlived shutdownSystemStats() must not restart sampling.
+        if (this._destroyed)
+            return;
         if (active)
             this._active.add(consumer);
         else
@@ -268,9 +275,10 @@ const SystemStatsStore = GObject.registerClass({
         if (this._temperatureInput === undefined)
             this._temperatureInput = findCpuTemperatureInput();
         try {
-            this.temperature = this._temperatureInput
+            const celsius = this._temperatureInput
                 ? Number(_read(this._temperatureInput)) / 1000
-                : null;
+                : NaN;
+            this.temperature = Number.isFinite(celsius) ? celsius : null;
         } catch (_e) {
             this.temperature = null;
         }
@@ -307,6 +315,7 @@ const SystemStatsStore = GObject.registerClass({
     }
 
     destroy() {
+        this._destroyed = true;
         this._active.clear();
         this._stop();
         this._interfaces.clear();
@@ -315,6 +324,17 @@ const SystemStatsStore = GObject.registerClass({
 
 let _store = null;
 let _storeUsers = 0;
+
+/**
+ * Drop the shared store regardless of its user count. Called on extension
+ * disable so one widget whose destroy() never ran cannot keep sampling while
+ * the extension is off (the module, and this store, survive until relogin).
+ */
+export function shutdownSystemStats() {
+    _store?.destroy();
+    _store = null;
+    _storeUsers = 0;
+}
 
 export const SystemStatsService = GObject.registerClass({
     Signals: {'changed': {}},
@@ -376,7 +396,12 @@ export const SystemStatsService = GObject.registerClass({
         this._store.setActive(this, false);
         this._store.disconnect(this._storeId);
         this._storeId = 0;
+        const own = this._store === _store;
         this._store = null;
+        // A store from before shutdownSystemStats() is already gone; do not
+        // count against, or destroy, the one a later enable created.
+        if (!own)
+            return;
         _storeUsers--;
         if (_storeUsers <= 0) {
             _storeUsers = 0;

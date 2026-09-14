@@ -305,6 +305,18 @@ const WeatherStore = GObject.registerClass({
     }
 });
 
+/**
+ * Drop the shared store regardless of its user count. Called on extension
+ * disable so one widget whose destroy() never ran cannot keep the refresh timer
+ * and GeoClue client alive while the extension is off (the module, and this
+ * store, survive until relogin).
+ */
+export function shutdownWeather() {
+    _store?.destroy();
+    _store = null;
+    _storeUsers = 0;
+}
+
 export const WeatherService = GObject.registerClass({
     Signals: {'changed': {}},
 }, class WeatherService extends GObject.Object {
@@ -386,7 +398,12 @@ export const WeatherService = GObject.registerClass({
             return;
         this._store.disconnect(this._storeId);
         this._storeId = 0;
+        const own = this._store === _store;
         this._store = null;
+        // A store from before shutdownWeather() is already gone; do not count
+        // against, or destroy, the one a later enable created.
+        if (!own)
+            return;
         _storeUsers--;
         if (_storeUsers <= 0) {
             _storeUsers = 0;
