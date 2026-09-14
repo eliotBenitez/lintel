@@ -58,8 +58,8 @@ msgid "Reveal in full screen"
 msgstr "Показывать в полноэкранном режиме"
 
 #: prefs.js:204
-msgid "Move the pointer to the top edge to show the panel temporarily"
-msgstr "Подведите указатель к верхнему краю, чтобы временно показать панель"
+msgid "Push the pointer against the top edge to show the panel temporarily"
+msgstr "Упритесь указателем в верхний край, чтобы временно показать панель"
 
 #: prefs.js:208 src/widgets/notificationCenter.js:198
 msgid "Notification Center"

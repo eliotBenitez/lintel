@@ -201,7 +201,7 @@ export default class LintelPreferences extends ExtensionPreferences {
             _('Clock on the right'), _('Move the clock to the far right, macOS-style'));
         addSwitch(layout, settings, 'fullscreen-reveal',
             _('Reveal in full screen'),
-            _('Move the pointer to the top edge to show the panel temporarily'));
+            _('Push the pointer against the top edge to show the panel temporarily'));
         page.add(layout);
 
         const notifications = new Adw.PreferencesGroup({

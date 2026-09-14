@@ -80,8 +80,9 @@ restores the stock top bar right away, with no need to log out.**
   GNOME. With automatic text color, it reads the wallpaper under the bar and
   switches between light and dark text. Height, padding, spacing, font, corner
   radius and hover/press effects are adjustable.
-- **Fullscreen reveal.** In a fullscreen app, move the pointer to the top edge
-  and the bar slides in over the app.
+- **Fullscreen reveal.** In a fullscreen app, push the pointer up against the
+  top edge and the bar slides in over the app. Just touching the edge does not
+  reveal it, so tabs and toolbars at the very top stay usable.
 - **Live preferences.** Every setting in the libadwaita preferences window
   applies instantly, with no need to re-enable the extension.
 - **Translations:** English and Russian.
@@ -149,7 +150,7 @@ Log out and back in, then run `gnome-extensions enable lintel@topbar`.
 | Edit Notification Center widgets | Open it and choose **Edit Widgets** |
 | Open the Control Center | Click the Control Center icon just left of the clock |
 | Open preferences | `gnome-extensions prefs lintel@topbar`, or use the Extensions app |
-| Show the bar in fullscreen | Move the pointer to the top edge of the screen |
+| Show the bar in fullscreen | Push the pointer up against the top edge of the screen |
 
 The preferences window has four pages: **Layout**, **Clock**, **Weather** and
 **Appearance**. Every setting is also a GSettings key, so you can script it:

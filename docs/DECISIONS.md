@@ -44,3 +44,16 @@ where it names the design reference. The code does not migrate settings: an
 existing install starts with an empty `/org/gnome/shell/extensions/lintel/`
 unless the old path is copied with `dconf dump … | dconf load …`. `dist/` still
 holds the pre-rename package.
+
+## Fullscreen reveal needs pressure, not a touch
+
+The fullscreen reveal used a reactive one-pixel actor on the top edge that
+revealed the panel on `enter-event`. Fullscreen apps put UI at the very top
+(browser tabs, video controls), so the panel appeared whenever the user aimed
+there, and the actor swallowed clicks on that row. The trigger is now a
+`Layout.PressureBarrier` with GNOME's hot-corner threshold (100 px within
+1000 ms), ignoring pushes with a mouse button held. There is no actor over the
+app, so clicks pass through. A dwell timer on the edge actor was rejected as
+the main trigger because it still blocks the top row and fires when the user
+simply rests there. It is kept only for a primary monitor with another monitor
+directly above, where a barrier would get in the way of crossing to it.

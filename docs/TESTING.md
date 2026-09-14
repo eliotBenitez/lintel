@@ -40,7 +40,7 @@ gnome-extensions enable lintel@topbar
 | 1 | Normal desktop | Enable | Logo + app name left; separate Wi-Fi + battery + Control Center + clock right; Activities gone | #1 |
 | 1b | Status popups | Open Wi-Fi, battery and Control Center one at a time | Each glyph owns its hit target/anchor and only its own popup opens; Wi-Fi networks and battery details are current | #4 |
 | 2 | Maximized window | Maximize any window | Window top edge sits **below** the panel; no overlap | #11 |
-| 3 | Fullscreen reveal | F11, then move the pointer to the top edge | Panel slides over the app; moving away hides it; exit → returns intact | #12 |
+| 3 | Fullscreen reveal | F11, then touch the top edge, then push the pointer up against it | Touching alone (or dragging with a button held) does not reveal; pushing slides the panel over the app; moving away hides it; exit → returns intact | #12 |
 | 3b | Fullscreen popup | Reveal the panel and open System Menu / Control Center | Panel stays visible while the popup is open, then hides after close + pointer leave | #12 |
 | 3c | Fullscreen notifications | Reveal the panel and click the clock | Notification Center opens above the fullscreen app; panel stays revealed while it is open | #12 |
 | 4 | Overview | Press Super | Panel background transparent (default `overview-mode=transparent`); widgets still there | #13 |

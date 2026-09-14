@@ -65,3 +65,18 @@
   `BatteryService.iconName` builds the 10%-step `battery-level-*` name (same
   floor-to-10 rule as GNOME Shell's own indicator) and exposes UPower's name as
   `fallbackIconName` for icon themes without those icons.
+
+## Fullscreen reveal
+
+- GNOME 50 `Layout.PressureBarrier` (`resource:///org/gnome/shell/ui/layout.js`)
+  is exported and reusable; `Meta.Barrier` takes `backend: global.backend`
+  (not `display`). A horizontal barrier coincident with the screen's top edge
+  still reports hits, as the hot corner's does.
+- `PressureBarrier.removeBarrier()` splices `indexOf(barrier)` without checking
+  for -1, so removing a barrier after `destroy()` drops an unrelated entry.
+  Remove barriers first, then destroy the PressureBarrier.
+- A barrier removed while the pointer is on it never gets `left`, so the
+  PressureBarrier stays `_isTriggered` and ignores the next barrier until the
+  pointer moves off once. It self-heals; do not reach into the private field.
+- A barrier does not release the pointer when triggered, so never place one on
+  an edge shared with another monitor.
