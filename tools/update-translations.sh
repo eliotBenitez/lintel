@@ -19,7 +19,7 @@ xgettext \
     --keyword=pgettext:1c,2 \
     --add-comments=TRANSLATORS \
     --package-name="Lintel" \
-    --package-version="0.17.0" \
+    --package-version="0.17.1" \
     --output="${POT}" \
     prefs.js \
     po/metadata.js.in \
