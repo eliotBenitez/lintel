@@ -12,5 +12,5 @@
   "settings-schema": "org.gnome.shell.extensions.lintel",
   "gettext-domain": "lintel@topbar",
   "url": "https://github.com/eliotBenitez/lintel",
-  "version-name": "0.17.1"
+  "version-name": "0.17.2"
 }
