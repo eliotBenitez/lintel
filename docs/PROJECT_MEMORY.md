@@ -18,6 +18,10 @@
 
 - An `St.Label` whose `text` was set to `''` reads back `text` as `null` in
   GJS. Never branch on `label.text.length`; test the value you assigned.
+- `NM.Device.disconnect()` is NetworkManager's device-disconnect operation,
+  not GObject's signal removal helper. Passing a signal handler ID to it makes
+  GJS report that `cancellable` received a number. Remove handlers from
+  `NM.Device` with `GObject.signal_handler_disconnect(device, id)`.
 - Headless click tests (`gnome-shell-test-tool` + a Clutter virtual pointer
   device): the first button press of the session is swallowed and closes the
   open popup. Spend one throwaway click before asserting anything, or a working

@@ -99,7 +99,7 @@ export const ConnectivityService = GObject.registerClass({
 
     _devicesChanged() {
         for (const [device, id] of this._deviceIds)
-            device.disconnect(id);
+            GObject.signal_handler_disconnect(device, id);
         this._deviceIds = [];
         for (const device of this._devices(NM.DeviceType.ETHERNET)) {
             this._deviceIds.push([device, device.connect('state-changed',
@@ -199,7 +199,7 @@ export const ConnectivityService = GObject.registerClass({
         this._destroyed = true;
         this._cancellable.cancel();
         for (const [device, id] of this._deviceIds)
-            device.disconnect(id);
+            GObject.signal_handler_disconnect(device, id);
         this._deviceIds = [];
         for (const id of this._clientIds)
             this._client?.disconnect(id);
